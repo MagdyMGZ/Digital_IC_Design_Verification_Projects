@@ -1,0 +1,24 @@
+module AES_Encrypt#(parameter N=128,parameter Nr=10,parameter Nk=4)(in,key,out);
+`protected
+    MTI!#$],1\rY^G$j^p*7GkrEQ/m*$[ew$n[^=iN&1/^F]a-77WB}]en~=I7
+`endprotected
+input [127:0] in;
+`protected
+    MTI!#$],1\rY^G$j^p*7GkrEQ/m*$[ew$n[^=iN&1/^F]a-77WB}]en~=I7
+`endprotected
+input [N-1:0] key;
+`protected
+    MTI!#$],1\rY^G$j^p*7GkrEQ/m*$[ew$n[^=iN&1/^F]a-77WB}]en~=I7
+`endprotected
+output [127:0] out;
+`protected
+    MTI!#}VZ_Oj'p]Vo=;>2QaEO_}{=xFew$n[l|N&1/^!m-$\#K\v{vBAo=\KB#_3uK*?EU7~;J3Rp
+    nOOuwqS'F$YWJ)7jTmsUs2Ts~^ej5+nAQjvZ+Y,JTA,i!BA=T$exKuT7uE+9$]U+,Y-oOz[pIWC'
+    Y~nH'jBWeW'i3$H~_YAB('mZ$=d~{w\"#$lY1,k1_?mBWX[@)}V[iX<qFcY=RKj*OO:_]nZCUI7E
+    {+lT{zirjX~Uw*HnE]Xi=arAz~w+Xw[{[B#7[!~KH}$XG-Z[Y3e^m9@[v_[3$G/NiHuvU]#sz1?C
+    hH}>AlA1^S3Gi>^~]k*}EzrvrpCgg~RARI-5\G7#5QZV2DvJ+1^n1{R?XxbW>YH#sZ2j!r@V\$s3
+    [B'?VJ315HJ2&3s*xGp>@'Yz]}>,;DZCkQKvuIka3]Q?G0U7!~x,?K}*r+ICTB9Q^?Vw>x$Gr#;3
+    5!}eC3wo1$_Ye]5,G$;T_1CuVH#nYTvjB[oqc,]{X'@,~J_7kFenx~7;;D#\j#;>_[3YrO];X'_]
+    =}BQE[q=]WK*O<R
+`endprotected
+endmodule

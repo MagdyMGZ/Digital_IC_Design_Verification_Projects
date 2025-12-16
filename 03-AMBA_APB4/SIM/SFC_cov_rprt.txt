@@ -1,0 +1,202 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /APB4_pkg
+=== Design Unit: work.APB4_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses         11        na        na        na
+            Covergroup Bins         38        38         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /APB4_pkg/APB4_collector/APB4_cov_grp           100.00%        100          -    Covered              
+    covered/total bins:                                    38         38          -                      
+    missing/total bins:                                     0         38          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint type_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          451          1          -    Covered              
+        bin write                                         549          1          -    Covered              
+    Coverpoint slave_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regfile_slv0                                  484          1          -    Covered              
+        bin memory_slv1                                   516          1          -    Covered              
+    Coverpoint presetn_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin presetn0                                       18          1          -    Covered              
+        bin presetn1                                      982          1          -    Covered              
+    Coverpoint transfer_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_transfer                                   372          1          -    Covered              
+        bin transfer_done                                 628          1          -    Covered              
+    Coverpoint write_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin pread                                         451          1          -    Covered              
+        bin pwrite                                        549          1          -    Covered              
+    Coverpoint strb_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin one_hot_strb[1]                                93          1          -    Covered              
+        bin one_hot_strb[2]                               105          1          -    Covered              
+        bin one_hot_strb[4]                               117          1          -    Covered              
+        bin one_hot_strb[8]                               115          1          -    Covered              
+        bin strb0                                         509          1          -    Covered              
+        bin strb1                                          61          1          -    Covered              
+    Coverpoint addr_slv0_cp                           100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regfile_slv0_addr[0]                           18          1          -    Covered              
+        bin regfile_slv0_addr[4]                           13          1          -    Covered              
+        bin regfile_slv0_addr[8]                           14          1          -    Covered              
+        bin regfile_slv0_addr[12]                          15          1          -    Covered              
+        bin regfile_slv0_addr[16]                          13          1          -    Covered              
+        bin regfile_slv0_addr[20]                          13          1          -    Covered              
+        bin regfile_slv0_addr[24]                           9          1          -    Covered              
+        bin regfile_slv0_addr[28]                          20          1          -    Covered              
+        bin regfile_slv0_addr[32]                          11          1          -    Covered              
+        bin regfile_slv0_addr[36]                          14          1          -    Covered              
+        bin regfile_slv0_addr[40]                          11          1          -    Covered              
+        bin regfile_slv0_addr[44]                           9          1          -    Covered              
+        bin regfile_slv0_addr[48]                          13          1          -    Covered              
+        bin regfile_slv0_addr[52]                          21          1          -    Covered              
+        bin regfile_slv0_addr[56]                           9          1          -    Covered              
+        bin regfile_slv0_addr[60]                          15          1          -    Covered              
+    Coverpoint addr_slv1_cp                           100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin memory_slv1_addr                              283          1          -    Covered              
+    Coverpoint wdata_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          492          1          -    Covered              
+        bin max                                            63          1          -    Covered              
+        bin typical                                       445          1          -    Covered              
+    Cross regfile_slv0_addr                           100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin regfile_addr                              218          1          -    Covered              
+    Cross memory_slv1_addr                            100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin memory_addr                               283          1          -    Covered              
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /APB4_pkg/APB4_collector/APB4_cov_grp           100.00%        100          -    Covered              
+    covered/total bins:                                    38         38          -                      
+    missing/total bins:                                     0         38          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint type_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          451          1          -    Covered              
+        bin write                                         549          1          -    Covered              
+    Coverpoint slave_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regfile_slv0                                  484          1          -    Covered              
+        bin memory_slv1                                   516          1          -    Covered              
+    Coverpoint presetn_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin presetn0                                       18          1          -    Covered              
+        bin presetn1                                      982          1          -    Covered              
+    Coverpoint transfer_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin no_transfer                                   372          1          -    Covered              
+        bin transfer_done                                 628          1          -    Covered              
+    Coverpoint write_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin pread                                         451          1          -    Covered              
+        bin pwrite                                        549          1          -    Covered              
+    Coverpoint strb_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin one_hot_strb[1]                                93          1          -    Covered              
+        bin one_hot_strb[2]                               105          1          -    Covered              
+        bin one_hot_strb[4]                               117          1          -    Covered              
+        bin one_hot_strb[8]                               115          1          -    Covered              
+        bin strb0                                         509          1          -    Covered              
+        bin strb1                                          61          1          -    Covered              
+    Coverpoint addr_slv0_cp                           100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regfile_slv0_addr[0]                           18          1          -    Covered              
+        bin regfile_slv0_addr[4]                           13          1          -    Covered              
+        bin regfile_slv0_addr[8]                           14          1          -    Covered              
+        bin regfile_slv0_addr[12]                          15          1          -    Covered              
+        bin regfile_slv0_addr[16]                          13          1          -    Covered              
+        bin regfile_slv0_addr[20]                          13          1          -    Covered              
+        bin regfile_slv0_addr[24]                           9          1          -    Covered              
+        bin regfile_slv0_addr[28]                          20          1          -    Covered              
+        bin regfile_slv0_addr[32]                          11          1          -    Covered              
+        bin regfile_slv0_addr[36]                          14          1          -    Covered              
+        bin regfile_slv0_addr[40]                          11          1          -    Covered              
+        bin regfile_slv0_addr[44]                           9          1          -    Covered              
+        bin regfile_slv0_addr[48]                          13          1          -    Covered              
+        bin regfile_slv0_addr[52]                          21          1          -    Covered              
+        bin regfile_slv0_addr[56]                           9          1          -    Covered              
+        bin regfile_slv0_addr[60]                          15          1          -    Covered              
+    Coverpoint addr_slv1_cp                           100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin memory_slv1_addr                              283          1          -    Covered              
+    Coverpoint wdata_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          492          1          -    Covered              
+        bin max                                            63          1          -    Covered              
+        bin typical                                       445          1          -    Covered              
+    Cross regfile_slv0_addr                           100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin regfile_addr                              218          1          -    Covered              
+    Cross memory_slv1_addr                            100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin memory_addr                               283          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 100.00%
+
