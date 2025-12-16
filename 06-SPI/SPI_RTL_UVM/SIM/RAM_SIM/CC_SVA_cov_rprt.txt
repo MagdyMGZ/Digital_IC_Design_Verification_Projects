@@ -1,0 +1,256 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\ram_top#DUT_RAM /RAM_SVA_INST
+=== Design Unit: work.RAM_SVA
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       5         5         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\ram_top#DUT_RAM /RAM_SVA_INST/rstn_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(49)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/not_tx_valid_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(52)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/tx_valid_fall_after_rise_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(55)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/write_seq_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(58)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/read_seq_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(61)
+                                                        0          1
+
+Directive Coverage:
+    Directives                       5         5         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\ram_top#DUT_RAM /RAM_SVA_INST/rstn_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(50)
+                                                                               579 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/not_tx_valid_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(53)
+                                                                              18032 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/tx_valid_fall_after_rise_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(56)
+                                                                              5199 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/write_seq_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(59)
+                                                                              5049 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/read_seq_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(62)
+                                                                              4997 Covered   
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         44        44         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\ram_top#DUT_RAM /RAM_SVA_INST --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                          din[9-0]           1           1      100.00 
+                                         dout[7-0]           1           1      100.00 
+                                             rst_n           1           1      100.00 
+                                          rx_valid           1           1      100.00 
+                                          tx_valid           1           1      100.00 
+
+Total Node Count     =         22 
+Toggled Node Count   =         22 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (44 of 44 bins)
+
+=================================================================================
+=== Instance: /\ram_top#DUT_RAM 
+=== Design Unit: work.RAM
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         8         8         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\ram_top#DUT_RAM 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../../RTL/RAM.v
+------------------------------------IF Branch------------------------------------
+    14                                     29995     Count coming in to IF
+    14              1                        579         if (~rst_n) begin
+    20              1                      29416         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    22                                     29416     Count coming in to IF
+    22              1                      26452             if (rx_valid) begin
+                                            2964     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    23                                     26452     Count coming in to CASE
+    24              1                       5152                     2'b00 : Wr_Addr <= din[7:0];
+    25              1                       8129                     2'b01 : MEM[Wr_Addr] <= din[7:0];
+    26              1                       5107                     2'b10 : Rd_Addr <= din[7:0];
+    27              1                       8064                     2'b11 : dout <= MEM[Rd_Addr];
+Branch totals: 4 hits of 4 branches = 100.00%
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      3         3         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\ram_top#DUT_RAM  --
+
+  File ../../RTL/RAM.v
+----------------Focused Expression View-----------------
+Line       21 Item    1  ((din[9] && din[8]) && rx_valid)
+Expression totals: 3 of 3 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+      din[9]         Y
+      din[8]         Y
+    rx_valid         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  din[9]_0              -                             
+  Row   2:          1  din[9]_1              (rx_valid && din[8])          
+  Row   3:          1  din[8]_0              din[9]                        
+  Row   4:          1  din[8]_1              (rx_valid && din[9])          
+  Row   5:          1  rx_valid_0            (din[9] && din[8])            
+  Row   6:          1  rx_valid_1            (din[9] && din[8])            
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      10        10         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\ram_top#DUT_RAM  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../../RTL/RAM.v
+    1                                                module RAM (din,clk,rst_n,rx_valid,dout,tx_valid);
+    2                                                
+    3                                                input      [9:0] din;
+    4                                                input            clk, rst_n, rx_valid;
+    5                                                
+    6                                                output reg [7:0] dout;
+    7                                                output reg       tx_valid;
+    8                                                
+    9                                                reg [7:0] MEM [255:0];
+    10                                               
+    11                                               reg [7:0] Rd_Addr, Wr_Addr;
+    12                                               
+    13              1                      29995     always @(posedge clk) begin
+    14                                                   if (~rst_n) begin
+    15              1                        579             dout <= 0;
+    16              1                        579             tx_valid <= 0;
+    17              1                        579             Rd_Addr <= 0;
+    18              1                        579             Wr_Addr <= 0;
+    19                                                   end
+    20                                                   else begin
+    21              1                      29416             tx_valid <= (din[9] && din[8] && rx_valid)? 1'b1 : 1'b0;
+    22                                                       if (rx_valid) begin
+    23                                                           case (din[9:8])
+    24              1                       5152                     2'b00 : Wr_Addr <= din[7:0];
+    25              1                       8129                     2'b01 : MEM[Wr_Addr] <= din[7:0];
+    26              1                       5107                     2'b10 : Rd_Addr <= din[7:0];
+    27              1                       8064                     2'b11 : dout <= MEM[Rd_Addr];
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         76        76         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\ram_top#DUT_RAM  --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                      Rd_Addr[7-0]           1           1      100.00 
+                                      Wr_Addr[7-0]           1           1      100.00 
+                                               clk           1           1      100.00 
+                                          din[0-9]           1           1      100.00 
+                                         dout[7-0]           1           1      100.00 
+                                             rst_n           1           1      100.00 
+                                          rx_valid           1           1      100.00 
+                                          tx_valid           1           1      100.00 
+
+Total Node Count     =         38 
+Toggled Node Count   =         38 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (76 of 76 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\ram_top#DUT_RAM /RAM_SVA_INST/rstn_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(50)
+                                                                               579 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/not_tx_valid_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(53)
+                                                                              18032 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/tx_valid_fall_after_rise_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(56)
+                                                                              5199 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/write_seq_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(59)
+                                                                              5049 Covered   
+/\ram_top#DUT_RAM /RAM_SVA_INST/read_seq_cover 
+                                         RAM_SVA Verilog  SVA  ../../UVM/RAM_ENV/14-ram_sva.sv(62)
+                                                                              4997 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 5
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\ram_top#DUT_RAM /RAM_SVA_INST/rstn_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(49)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/not_tx_valid_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(52)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/tx_valid_fall_after_rise_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(55)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/write_seq_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(58)
+                                                        0          1
+/\ram_top#DUT_RAM /RAM_SVA_INST/read_seq_assertion
+                     ../../UVM/RAM_ENV/14-ram_sva.sv(61)
+                                                        0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

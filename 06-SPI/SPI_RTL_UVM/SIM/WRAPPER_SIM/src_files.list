@@ -1,0 +1,5 @@
+../../RTL/SLAVE.sv
+../../RTL/RAM.v
+../../RTL/WRAPPER.v
+../../UVM/WRAPPER_ENV/*.*v
+
