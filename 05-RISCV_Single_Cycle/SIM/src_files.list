@@ -1,0 +1,11 @@
+../RTL_TB/Adder.v
+../RTL_TB/ALU.v
+../RTL_TB/Control_Unit.v
+../RTL_TB/Data_Memory.v
+../RTL_TB/Instruction_Mem.v
+../RTL_TB/MUX.v
+../RTL_TB/PC.v
+../RTL_TB/Register_File.v
+../RTL_TB/Sign_Extend.v
+../RTL_TB/RISCV_TOP_SVA.sv
+../RTL_TB/RISCV_TB.sv

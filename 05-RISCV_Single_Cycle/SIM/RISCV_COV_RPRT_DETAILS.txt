@@ -1,0 +1,563 @@
+Coverage Report by DU with details
+
+=================================================================================
+=== Design Unit: work.RISCV
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      19        19         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+work.RISCV::RST_assertion
+                     ../RTL_TB/RISCV_TOP_SVA.sv(137)
+                                                        0          1
+work.RISCV::ImmExt_assertion_00
+                     ../RTL_TB/RISCV_TOP_SVA.sv(145)
+                                                        0          1
+work.RISCV::ImmExt_assertion_01
+                     ../RTL_TB/RISCV_TOP_SVA.sv(149)
+                                                        0          1
+work.RISCV::ImmExt_assertion_10
+                     ../RTL_TB/RISCV_TOP_SVA.sv(153)
+                                                        0          1
+work.RISCV::ImmExt_assertion_11
+                     ../RTL_TB/RISCV_TOP_SVA.sv(157)
+                                                        0          1
+work.RISCV::SrcB_assertion_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(165)
+                                                        0          1
+work.RISCV::SrcB_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(169)
+                                                        0          1
+work.RISCV::PCNext_assertion_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(176)
+                                                        0          1
+work.RISCV::PCNext_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(180)
+                                                        0          1
+work.RISCV::ALU_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(188)
+                                                        0          1
+work.RISCV::ALU_cover_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(189)
+                                                        0          1
+work.RISCV::ALU_assertion_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(193)
+                                                        0          1
+work.RISCV::ALU_cover_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(194)
+                                                        0          1
+work.RISCV::ALU_assertion_2
+                     ../RTL_TB/RISCV_TOP_SVA.sv(198)
+                                                        0          1
+work.RISCV::ALU_cover_2
+                     ../RTL_TB/RISCV_TOP_SVA.sv(199)
+                                                        0          1
+work.RISCV::ALU_assertion_4
+                     ../RTL_TB/RISCV_TOP_SVA.sv(203)
+                                                        0          1
+work.RISCV::ALU_cover_4
+                     ../RTL_TB/RISCV_TOP_SVA.sv(204)
+                                                        0          1
+work.RISCV::Result_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(235)
+                                                        0          1
+work.RISCV::PC_assertion
+                     ../RTL_TB/RISCV_TOP_SVA.sv(244)
+                                                        0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        23        19         4    82.60%
+
+================================Branch Details================================
+
+Branch Coverage for Design Unit work.RISCV
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL_TB/RISCV_TOP_SVA.sv
+------------------------------------IF Branch------------------------------------
+    136                                       88     Count coming in to IF
+    136             1                          4         if (!areset) begin
+                                              84     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    143                                      209     Count coming in to CASE
+    144             1                         73             2'b00   : begin
+    148             1                         30             2'b01   : begin
+    152             1                         61             2'b10   : begin
+    156             1                         45             default : begin
+Branch totals: 4 hits of 4 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    164                                      179     Count coming in to IF
+    164             1                         80         if (ALUSrc) begin
+    168             1                         97         else if (!ALUSrc) begin
+                                               2     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    175                                      214     Count coming in to IF
+    175             1                         49         if (PCSrc) begin
+    179             1                        162         else if (!PCSrc) begin
+                                               3     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    186                                      268     Count coming in to CASE
+    187             1                        131             3'b000  : begin
+    192             1                         38             3'b001  : begin
+    197             1                         95             3'b010  : begin
+    202             1                          2             3'b100  : begin
+    207             1                    ***0***             3'b101  : begin
+    212             1                    ***0***             3'b110  : begin
+    217             1                    ***0***             3'b111  : begin
+    222             1                          2             default : begin
+Branch totals: 5 hits of 8 branches = 62.50%
+
+------------------------------------IF Branch------------------------------------
+    230                                      189     Count coming in to IF
+    230             1                    ***0***         if (ResultSrc) begin
+    234             1                        101         else if (!ResultSrc) begin
+                                              88     All False Count
+Branch totals: 2 hits of 3 branches = 66.66%
+
+
+
+Directive Coverage:
+    Directives                      12        11         1    91.66%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+work.RISCV::RST_cover                    RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(138)
+                                                                                 2 Covered   
+work.RISCV::ImmExt_cover_00              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(146)
+                                                                                28 Covered   
+work.RISCV::ImmExt_cover_01              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(150)
+                                                                                10 Covered   
+work.RISCV::ImmExt_cover_10              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(154)
+                                                                                25 Covered   
+work.RISCV::ImmExt_cover_11              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(158)
+                                                                                22 Covered   
+work.RISCV::SrcB_cover_1                 RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(166)
+                                                                                35 Covered   
+work.RISCV::SrcB_cover_0                 RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(170)
+                                                                                45 Covered   
+work.RISCV::PCNext_cover_1               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(177)
+                                                                                19 Covered   
+work.RISCV::PCNext_cover_0               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(181)
+                                                                                66 Covered   
+work.RISCV::Result_cover_1               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(232)
+                                                                                 0 ZERO      
+work.RISCV::Result_cover_0               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(236)
+                                                                                47 Covered   
+work.RISCV::PC_cover                     RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(245)
+                                                                                82 Covered   
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         6         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for Design Unit work.RISCV --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL_TB/RISCV_TOP_SVA.sv
+    1                                                module RISCV (
+    2                                                    input       logic        clk,
+    3                                                    input       logic        areset
+    4                                                );
+    5                                                
+    6                                                logic      [31:0]      PCNext;
+    7                                                logic      [31:0]      PC;
+    8                                                logic      [31:0]      PCPlus4;
+    9                                                logic      [31:0]      Instr;
+    10                                               logic      [31:0]      ImmExt;
+    11                                               logic      [31:0]      PCTarget;
+    12                                               logic      [31:0]      Result;
+    13                                               logic      [31:0]      RD2;
+    14                                               logic      [31:0]      SrcA;
+    15                                               logic      [31:0]      SrcB;
+    16                                               logic      [31:0]      ALUResult;
+    17                                               logic      [31:0]      ReadData;
+    18                                               
+    19                                               logic                  PCSrc, ResultSrc, MemWrite, ALUSrc, RegWrite;
+    20                                               logic                  Zero, sign_flag;
+    21                                               
+    22                                               logic      [1:0]       ImmSrc;
+    23                                               logic      [2:0]       ALUControl;
+    24                                               
+    25                                               // PC + 4 Adder
+    26                                               Adder pc_plus4 (
+    27                                                   .In1(PC),
+    28                                                   .In2(4),
+    29                                                   .Out(PCPlus4)
+    30                                               );
+    31                                               
+    32                                               // PC Target Adder
+    33                                               Adder pc_traget (
+    34                                                   .In1(PC),
+    35                                                   .In2(ImmExt),
+    36                                                   .Out(PCTarget)
+    37                                               );
+    38                                               
+    39                                               // PC MUX
+    40                                               MUX pc_mux (
+    41                                                   .In1(PCPlus4),
+    42                                                   .In2(PCTarget),
+    43                                                   .Sel(PCSrc),
+    44                                                   .Out(PCNext)
+    45                                               );
+    46                                               
+    47                                               // Program Counter (PC)
+    48                                               PC pc (
+    49                                                   .areset(areset),
+    50                                                   .clk(clk),
+    51                                                   .PCNext(PCNext),
+    52                                                   .PC(PC)
+    53                                               );
+    54                                               
+    55                                               // Instruction Memory
+    56                                               Instruction_Mem instr_mem (
+    57                                                   .PC(PC),
+    58                                                   .Instr(Instr)
+    59                                               );
+    60                                               
+    61                                               // Register File
+    62                                               Register_File reg_file (
+    63                                                   .areset(areset),
+    64                                                   .clk(clk),
+    65                                                   .WE3(RegWrite),
+    66                                                   .A1(Instr[19:15]),
+    67                                                   .A2(Instr[24:20]),
+    68                                                   .A3(Instr[11:7]),
+    69                                                   .WD3(Result),
+    70                                                   .RD1(SrcA),
+    71                                                   .RD2(RD2)
+    72                                               );
+    73                                               
+    74                                               // Sign Extender
+    75                                               Sign_Extend sign_extender (
+    76                                                   .ImmSrc(ImmSrc),
+    77                                                   .Instr(Instr[31:7]),
+    78                                                   .ImmExt(ImmExt)
+    79                                               );
+    80                                               
+    81                                               // ALU MUX
+    82                                               MUX alu_mux (
+    83                                                   .In1(RD2),
+    84                                                   .In2(ImmExt),
+    85                                                   .Sel(ALUSrc),
+    86                                                   .Out(SrcB)
+    87                                               );
+    88                                               
+    89                                               // ALU
+    90                                               ALU alu (
+    91                                                   .ALUControl(ALUControl),
+    92                                                   .SrcA(SrcA),
+    93                                                   .SrcB(SrcB),
+    94                                                   .Zero(Zero),
+    95                                                   .sign_flag(sign_flag),
+    96                                                   .ALUResult(ALUResult)
+    97                                               );
+    98                                               
+    99                                               // Control Unit
+    100                                              Control_Unit control_unit (
+    101                                                  .op(Instr[6:0]),
+    102                                                  .Zero(Zero),
+    103                                                  .sign_flag(sign_flag),
+    104                                                  .funct3(Instr[14:12]),
+    105                                                  .funct7(Instr[30]),
+    106                                                  .PCSrc(PCSrc),
+    107                                                  .ResultSrc(ResultSrc),
+    108                                                  .MemWrite(MemWrite),
+    109                                                  .ALUSrc(ALUSrc),
+    110                                                  .ImmSrc(ImmSrc),
+    111                                                  .RegWrite(RegWrite),
+    112                                                  .ALUControl(ALUControl)
+    113                                              );
+    114                                              
+    115                                              // Data Memory
+    116                                              Data_Memory data_mem (
+    117                                                  .clk(clk),
+    118                                                  .areset(areset),
+    119                                                  .WE(MemWrite),
+    120                                                  .A(ALUResult),
+    121                                                  .WD(RD2),
+    122                                                  .RD(ReadData)
+    123                                              );
+    124                                              
+    125                                              // Result MUX
+    126                                              MUX result_mux (
+    127                                                  .In1(ALUResult),
+    128                                                  .In2(ReadData),
+    129                                                  .Sel(ResultSrc),
+    130                                                  .Out(Result)
+    131                                              );
+    132                                              
+    133                                              `ifdef SIM
+    134                                              
+    135             1                         88     always_comb begin
+    136                                                  if (!areset) begin
+    137                                                      RST_assertion : assert final (PC == 0);
+    138                                                      RST_cover     : cover  final (PC == 0);
+    139                                                  end
+    140                                              end
+    141                                              
+    142             1                        209     always_comb begin
+    143                                                  case (ImmSrc)
+    144                                                      2'b00   : begin
+    145                                                          ImmExt_assertion_00 : assert final (ImmExt == {{20{Instr[31]}},Instr[31:20]}); 
+    146                                                          ImmExt_cover_00     : cover  final (ImmExt == {{20{Instr[31]}},Instr[31:20]}); 
+    147                                                      end
+    148                                                      2'b01   : begin
+    149                                                          ImmExt_assertion_01 : assert final (ImmExt == {{20{Instr[31]}},Instr[31:25],Instr[11:7]}); 
+    150                                                          ImmExt_cover_01     : cover  final (ImmExt == {{20{Instr[31]}},Instr[31:25],Instr[11:7]}); 
+    151                                                      end 
+    152                                                      2'b10   : begin
+    153                                                          ImmExt_assertion_10 : assert final (ImmExt == {{20{Instr[31]}},Instr[7],Instr[30:25],Instr[11:8],1'b0}); 
+    154                                                          ImmExt_cover_10     : cover  final (ImmExt == {{20{Instr[31]}},Instr[7],Instr[30:25],Instr[11:8],1'b0}); 
+    155                                                      end
+    156                                                      default : begin
+    157                                                          ImmExt_assertion_11 : assert final (ImmExt == 0); 
+    158                                                          ImmExt_cover_11     : cover  final (ImmExt == 0); 
+    159                                                      end
+    160                                                  endcase
+    161                                              end
+    162                                              
+    163             1                        179     always_comb begin
+    164                                                  if (ALUSrc) begin
+    165                                                      SrcB_assertion_1 : assert final (SrcB == ImmExt);
+    166                                                      SrcB_cover_1     : cover  final (SrcB == ImmExt);
+    167                                                  end
+    168                                                  else if (!ALUSrc) begin
+    169                                                      SrcB_assertion_0 : assert final (SrcB == RD2);
+    170                                                      SrcB_cover_0     : cover  final (SrcB == RD2);
+    171                                                  end
+    172                                              end
+    173                                              
+    174             1                        214     always_comb begin
+    175                                                  if (PCSrc) begin
+    176                                                      PCNext_assertion_1 : assert final (PCNext == PCTarget);
+    177                                                      PCNext_cover_1     : cover  final (PCNext == PCTarget);
+    178                                                  end
+    179                                                  else if (!PCSrc) begin
+    180                                                      PCNext_assertion_0 : assert final (PCNext == PCPlus4);
+    181                                                      PCNext_cover_0     : cover  final (PCNext == PCPlus4);
+    182                                                  end
+    183                                              end
+    184                                              
+    185             1                        268     always_comb begin
+    186                                                  case (ALUControl)
+    187                                                      3'b000  : begin
+    188                                                          ALU_assertion_0 : assert final (ALUResult == SrcA  +  SrcB);
+    189                                                          ALU_cover_0     : assert final (ALUResult == SrcA  +  SrcB);
+    190                                                      end
+    191                                                      
+    192                                                      3'b001  : begin
+    193                                                          ALU_assertion_1 : assert final (ALUResult == SrcA  << SrcB);
+    194                                                          ALU_cover_1     : assert final (ALUResult == SrcA  << SrcB);
+    195                                                      end
+    196                                              
+    197                                                      3'b010  : begin
+    198                                                          ALU_assertion_2 : assert final (ALUResult == SrcA  -  SrcB);
+    199                                                          ALU_cover_2     : assert final (ALUResult == SrcA  -  SrcB);
+    200                                                      end
+    201                                              
+    202                                                      3'b100  : begin
+    203                                                          ALU_assertion_4 : assert final (ALUResult == SrcA  ^  SrcB);
+    204                                                          ALU_cover_4     : assert final (ALUResult == SrcA  ^  SrcB);
+    205                                                      end
+    206                                              
+    207                                                      3'b101  : begin
+    208                                                          ALU_assertion_5 : assert final (ALUResult == SrcA  >> SrcB);
+    209                                                          ALU_cover_5     : assert final (ALUResult == SrcA  >> SrcB);
+    210                                                      end
+    211                                              
+    212                                                      3'b110  : begin
+    213                                                          ALU_assertion_6 : assert final (ALUResult == SrcA  |  SrcB);
+    214                                                          ALU_cover_6     : assert final (ALUResult == SrcA  |  SrcB);
+    215                                                      end
+    216                                              
+    217                                                      3'b111  : begin
+    218                                                          ALU_assertion_7 : assert final (ALUResult == SrcA  &  SrcB);
+    219                                                          ALU_cover_7     : assert final (ALUResult == SrcA  &  SrcB);
+    220                                                      end
+    221                                              
+    222                                                      default : begin
+    223                                                          ALU_assertion_3 : assert final (ALUResult == 0);
+    224                                                          ALU_cover_3     : assert final (ALUResult == 0);
+    225                                                      end
+    226                                                  endcase
+    227                                              end
+    228                                              
+    229             1                        189     always_comb begin
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        796       304       492    38.19%
+
+================================Toggle Details================================
+
+Toggle Coverage for Design Unit work.RISCV
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                   ALUControl[0-2]           1           1      100.00 
+                                   ALUResult[0-31]           1           1      100.00 
+                                            ALUSrc           1           1      100.00 
+                                       ImmExt[0-4]           1           1      100.00 
+                                         ImmExt[5]           0           0        0.00 
+                                      ImmExt[6-31]           1           1      100.00 
+                                       ImmSrc[0-1]           1           1      100.00 
+                                        Instr[0-1]           1           1      100.00 
+                                        Instr[2-3]           0           0        0.00 
+                                       Instr[4-17]           1           1      100.00 
+                                      Instr[18-19]           0           0        0.00 
+                                      Instr[20-23]           1           1      100.00 
+                                      Instr[24-25]           0           0        0.00 
+                                      Instr[26-31]           1           1      100.00 
+                                          MemWrite           1           1      100.00 
+                                           PC[0-1]           0           0        0.00 
+                                           PC[2-6]           1           1      100.00 
+                                          PC[7-31]           0           0        0.00 
+                                       PCNext[0-1]           0           0        0.00 
+                                       PCNext[2-6]           1           1      100.00 
+                                      PCNext[7-31]           0           0        0.00 
+                                      PCPlus4[0-1]           0           0        0.00 
+                                      PCPlus4[2-6]           1           1      100.00 
+                                     PCPlus4[7-31]           0           0        0.00 
+                                             PCSrc           1           1      100.00 
+                                     PCTarget[0-6]           1           1      100.00 
+                                    PCTarget[7-31]           0           0        0.00 
+                                          RD2[0-6]           1           1      100.00 
+                                         RD2[7-31]           0           0        0.00 
+                                     ReadData[0-1]           1           1      100.00 
+                                    ReadData[2-31]           0           0        0.00 
+                                          RegWrite           1           1      100.00 
+                                       Result[0-6]           1           1      100.00 
+                                      Result[7-31]           0           0        0.00 
+                                         ResultSrc           0           0        0.00 
+                                         SrcA[0-5]           1           1      100.00 
+                                        SrcA[6-31]           0           0        0.00 
+                                         SrcB[0-5]           1           1      100.00 
+                                        SrcB[6-31]           0           0        0.00 
+                                              Zero           1           1      100.00 
+                                            areset           1           1      100.00 
+                                               clk           1           1      100.00 
+                                         sign_flag           1           1      100.00 
+
+Total Node Count     =        398 
+Toggled Node Count   =        152 
+Untoggled Node Count =        246 
+
+Toggle Coverage      =      38.19% (304 of 796 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+work.RISCV::RST_cover                    RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(138)
+                                                                                 2 Covered   
+work.RISCV::ImmExt_cover_00              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(146)
+                                                                                28 Covered   
+work.RISCV::ImmExt_cover_01              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(150)
+                                                                                10 Covered   
+work.RISCV::ImmExt_cover_10              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(154)
+                                                                                25 Covered   
+work.RISCV::ImmExt_cover_11              RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(158)
+                                                                                22 Covered   
+work.RISCV::SrcB_cover_1                 RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(166)
+                                                                                35 Covered   
+work.RISCV::SrcB_cover_0                 RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(170)
+                                                                                45 Covered   
+work.RISCV::PCNext_cover_1               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(177)
+                                                                                19 Covered   
+work.RISCV::PCNext_cover_0               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(181)
+                                                                                66 Covered   
+work.RISCV::Result_cover_1               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(232)
+                                                                                 0 ZERO      
+work.RISCV::Result_cover_0               RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(236)
+                                                                                47 Covered   
+work.RISCV::PC_cover                     RISCV  Verilog  SVA  ../RTL_TB/RISCV_TOP_SVA.sv(245)
+                                                                                82 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 91.66%  COVERS: 12
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+work.RISCV::RST_assertion
+                     ../RTL_TB/RISCV_TOP_SVA.sv(137)
+                                                        0          1
+work.RISCV::ImmExt_assertion_00
+                     ../RTL_TB/RISCV_TOP_SVA.sv(145)
+                                                        0          1
+work.RISCV::ImmExt_assertion_01
+                     ../RTL_TB/RISCV_TOP_SVA.sv(149)
+                                                        0          1
+work.RISCV::ImmExt_assertion_10
+                     ../RTL_TB/RISCV_TOP_SVA.sv(153)
+                                                        0          1
+work.RISCV::ImmExt_assertion_11
+                     ../RTL_TB/RISCV_TOP_SVA.sv(157)
+                                                        0          1
+work.RISCV::SrcB_assertion_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(165)
+                                                        0          1
+work.RISCV::SrcB_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(169)
+                                                        0          1
+work.RISCV::PCNext_assertion_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(176)
+                                                        0          1
+work.RISCV::PCNext_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(180)
+                                                        0          1
+work.RISCV::ALU_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(188)
+                                                        0          1
+work.RISCV::ALU_cover_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(189)
+                                                        0          1
+work.RISCV::ALU_assertion_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(193)
+                                                        0          1
+work.RISCV::ALU_cover_1
+                     ../RTL_TB/RISCV_TOP_SVA.sv(194)
+                                                        0          1
+work.RISCV::ALU_assertion_2
+                     ../RTL_TB/RISCV_TOP_SVA.sv(198)
+                                                        0          1
+work.RISCV::ALU_cover_2
+                     ../RTL_TB/RISCV_TOP_SVA.sv(199)
+                                                        0          1
+work.RISCV::ALU_assertion_4
+                     ../RTL_TB/RISCV_TOP_SVA.sv(203)
+                                                        0          1
+work.RISCV::ALU_cover_4
+                     ../RTL_TB/RISCV_TOP_SVA.sv(204)
+                                                        0          1
+work.RISCV::Result_assertion_0
+                     ../RTL_TB/RISCV_TOP_SVA.sv(235)
+                                                        0          1
+work.RISCV::PC_assertion
+                     ../RTL_TB/RISCV_TOP_SVA.sv(244)
+                                                        0          1
+
+Total Coverage By Design Unit (filtered view): 82.49%
+
