@@ -1,0 +1,6 @@
+../CDC_CCT/*.v
+../CDC_CCT/*.v
+../RTL/*.v
+../RTL/*.v
+../UVM/*.sv
+../UVM/*.sv
