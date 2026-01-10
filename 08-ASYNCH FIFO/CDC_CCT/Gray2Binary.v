@@ -8,11 +8,11 @@ module Gray2Binary #(
 genvar i;
 generate
     for (i = WIDTH-2 ; i >= 0 ; i = i - 1) begin
-        assign o_data_binary[i] = i_data_gray[i] ^ o_data_binary[i-1];
+        assign o_data_binary[i] = i_data_gray[i] ^ o_data_binary[i+1];
     end
 endgenerate
 
 assign o_data_binary[WIDTH-1] = i_data_gray[WIDTH-1];
     
-
 endmodule
+
