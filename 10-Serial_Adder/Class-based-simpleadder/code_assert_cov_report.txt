@@ -1,0 +1,342 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\simpleadder_oop_tb#DUT /sva_inst
+=== Design Unit: work.adder_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       2         2         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_Out_Assertion
+                     adder_sva.sv(11)                   0          1
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_En_O_Assertion
+                     adder_sva.sv(14)                   0          1
+
+Directive Coverage:
+    Directives                       2         2         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_Out_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(12) 247 Covered   
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_En_O_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(15)1000 Covered   
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         18        18         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\simpleadder_oop_tb#DUT /sva_inst --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+                                     temp_out[0-2]           1           1      100.00 
+
+Total Node Count     =          9 
+Toggled Node Count   =          9 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (18 of 18 bins)
+
+=================================================================================
+=== Instance: /\simpleadder_oop_tb#DUT 
+=== Design Unit: work.simpleadder
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        13        13         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\simpleadder_oop_tb#DUT 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder.v
+------------------------------------IF Branch------------------------------------
+    28                                      7000     Count coming in to IF
+    28              1                       2000     		if(en_i==1'b1)
+                                            5000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    33                                      7000     Count coming in to CASE
+    35              1                       2000     			1: begin
+    52              1                       4000     			2: begin
+                                            1000     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    45                                      2000     Count coming in to IF
+    45              1                       1000     				if(counter==2) begin
+                                            1000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    58                                      4000     Count coming in to IF
+    58              1                       1000     				if(counter==3) en_o <= 1'b1;
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    60                                      4000     Count coming in to IF
+    60              1                       1000     				if(counter==4) en_o <= 1'b0;
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    62                                      4000     Count coming in to IF
+    62              1                       1000     				if(counter==6) begin
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       4         4         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /\simpleadder_oop_tb#DUT  --
+
+  File simpleadder.v
+----------------Focused Condition View-------------------
+Line       45 Item    1  (counter == 2)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 2)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 2)_0      -                             
+  Row   2:          1  (counter == 2)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       58 Item    1  (counter == 3)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 3)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 3)_0      -                             
+  Row   2:          1  (counter == 3)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       60 Item    1  (counter == 4)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 4)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 4)_0      -                             
+  Row   2:          1  (counter == 4)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       62 Item    1  (counter == 6)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 6)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 6)_0      -                             
+  Row   2:          1  (counter == 6)_1      -                             
+
+
+FSM Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    FSM States                       3         3         0   100.00%
+    FSM Transitions                  3         3         0   100.00%
+
+================================FSM Details================================
+
+FSM Coverage for instance /\simpleadder_oop_tb#DUT  --
+
+FSM_ID: state
+    Current State Object : state
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+  35                 st0                   1
+  52                 st1                   2
+  30                 st2                   0
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                     st0                1000          
+                     st1                1000          
+                     st2                1000          
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+  47                   0                1000          st0 -> st1                    
+  65                   1                1000          st1 -> st2                    
+  30                   3                 999          st2 -> st0                    
+
+
+    Summary                       Bins      Hits    Misses  Coverage
+    -------                       ----      ----    ------  --------
+        FSM States                   3         3         0   100.00%
+        FSM Transitions              3         3         0   100.00%
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      24        24         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\simpleadder_oop_tb#DUT  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder.v
+    1                                                module simpleadder (
+    2                                                    input  wire clk,
+    3                                                	input  wire en_i,
+    4                                                	input  wire ina,
+    5                                                	input  wire inb,
+    6                                                	output reg  en_o,
+    7                                                	output reg  out
+    8                                                );
+    9                                                
+    10                                               	integer counter, state;
+    11                                               	reg[1:0] temp_a, temp_b;
+    12                                               	reg[2:0] temp_out;
+    13                                               
+    14                                               	// Initial
+    15                                               	initial begin
+    16              1                          1     		counter  = 0;
+    17              1                          1     		temp_a   = 2'b00;
+    18              1                          1     		temp_b   = 2'b00;
+    19              1                          1     		temp_out = 3'b000;
+    20              1                          1     		out      = 0;
+    21              1                          1     		en_o     = 0;
+    22              1                          1     		state    = 0;
+    23                                               	end
+    24                                               	
+    25              1                       7000     	always@(posedge clk)
+    26                                               	begin
+    27                                               		// State 0: Wait for en_i
+    28                                               		if(en_i==1'b1)
+    29                                               		begin
+    30              1                       2000     			state = 1;
+    31                                               		end
+    32                                               
+    33                                               		case(state)
+    34                                               			// State 1: Start reading inputs
+    35                                               			1: begin
+    36              1                       2000     				temp_a = temp_a << 1;
+    37              1                       2000     				temp_a = temp_a | ina;
+    38                                               			
+    39              1                       2000     				temp_b = temp_b << 1;
+    40              1                       2000     				temp_b = temp_b | inb;
+    41                                               
+    42              1                       2000     				counter = counter + 1;
+    43                                               
+    44                                               				// After 2 bits, do the operation an move to the next state
+    45                                               				if(counter==2) begin
+    46              1                       1000     					temp_out = temp_a + temp_b;
+    47              1                       1000     					state = 2;
+    48                                               				end
+    49                                               			end
+    50                                               
+    51                                               			//State 2: Enable en_o and sends result to the output
+    52                                               			2: begin
+    53              1                       4000     				out <= temp_out[2];
+    54              1                       4000     				temp_out = temp_out << 1;
+    55                                               
+    56              1                       4000     				counter = counter + 1;
+    57                                               
+    58              1                       1000     				if(counter==3) en_o <= 1'b1;
+    59                                               
+    60              1                       1000     				if(counter==4) en_o <= 1'b0;
+    61                                               
+    62                                               				if(counter==6) begin
+    63              1                       1000     					counter = 0;
+    64              1                       1000     					out  = 1'b0;
+    65              1                       1000     					state = 0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         26        26         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\simpleadder_oop_tb#DUT  --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+                                       temp_a[1-0]           1           1      100.00 
+                                       temp_b[1-0]           1           1      100.00 
+                                     temp_out[2-0]           1           1      100.00 
+
+Total Node Count     =         13 
+Toggled Node Count   =         13 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (26 of 26 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_Out_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(12) 247 Covered   
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_En_O_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(15)1000 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 2
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_Out_Assertion
+                     adder_sva.sv(11)                   0          1
+/\simpleadder_oop_tb#DUT /sva_inst/Adder_En_O_Assertion
+                     adder_sva.sv(14)                   0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

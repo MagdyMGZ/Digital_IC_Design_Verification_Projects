@@ -1,0 +1,1384 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /top/sa_vif
+=== Design Unit: work.sa_if
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         6         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top/sa_vif --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File sa_interface.sv
+    3                                                interface sa_if ();
+    4                                                    // Signals Declaration
+    5                                                    logic clk, en_i, ina, inb;
+    6                                                    logic en_o, out;
+    7                                                
+    8                                                    // Clock Generation
+    9                                                    initial begin
+    10              1                          1             clk = 0;
+    11              1                          1             forever begin
+    12              1                      14000                 #10 clk = ~clk;
+    12              2                      13999     
+    13                                                       end
+    14                                                   end
+    15                                               
+    16                                                   // Clocking Blocks is triggered in Observed Region
+    17                                                   // 1st Clock Cycle Drive x and Monitor x
+    18                                                   // Driving done at #1step after the previous posedge in Postponed Region of next timestep in the next #1 make 9ns Setup slack before the next posedge
+    19                                                   // Monitoring done at #0 the corresponding (inputs/outputs) at the Observed Region of the current timestep
+    20                                                   
+    21                                                   // Clocking Blocking for Synchronization Between Driver and DUT
+    22              1                          1         clocking cb_driver @(posedge clk);
+    23                                                       default output #1step;
+    24                                                       output en_i, ina, inb;  // Driven Output from Driver Into the DUT (write-only, can't be sampled)
+    25                                                   endclocking
+    26                                               
+    27                                                   // Clocking Blocking for Synchronization Between DUT & Monitors
+    28              1                          1         clocking cb_monitor @(posedge clk);
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         12        12         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top/sa_vif --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+
+Total Node Count     =          6 
+Toggled Node Count   =          6 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (12 of 12 bins)
+
+=================================================================================
+=== Instance: /top/DUT/sva_inst
+=== Design Unit: work.sa_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       2         2         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top/DUT/sva_inst/Adder_Out_Assertion
+                     sa_sva.sv(11)                      0          1
+/top/DUT/sva_inst/Adder_En_O_Assertion
+                     sa_sva.sv(14)                      0          1
+
+Directive Coverage:
+    Directives                       2         2         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/top/DUT/sva_inst/Adder_Out_Cover        sa_sva Verilog  SVA  sa_sva.sv(12)    270 Covered   
+/top/DUT/sva_inst/Adder_En_O_Cover       sa_sva Verilog  SVA  sa_sva.sv(15)   1000 Covered   
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         18        18         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top/DUT/sva_inst --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+                                     temp_out[0-2]           1           1      100.00 
+
+Total Node Count     =          9 
+Toggled Node Count   =          9 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (18 of 18 bins)
+
+=================================================================================
+=== Instance: /top/DUT
+=== Design Unit: work.simpleadder
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        13        13         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /top/DUT
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder.v
+------------------------------------IF Branch------------------------------------
+    28                                      7000     Count coming in to IF
+    28              1                       2000     		if(en_i==1'b1)
+                                            5000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    33                                      7000     Count coming in to CASE
+    35              1                       2000     			1: begin
+    52              1                       4000     			2: begin
+                                            1000     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    45                                      2000     Count coming in to IF
+    45              1                       1000     				if(counter==2) begin
+                                            1000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    58                                      4000     Count coming in to IF
+    58              1                       1000     				if(counter==3) en_o <= 1'b1;
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    60                                      4000     Count coming in to IF
+    60              1                       1000     				if(counter==4) en_o <= 1'b0;
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    62                                      4000     Count coming in to IF
+    62              1                       1000     				if(counter==6) begin
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       4         4         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /top/DUT --
+
+  File simpleadder.v
+----------------Focused Condition View-------------------
+Line       45 Item    1  (counter == 2)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 2)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 2)_0      -                             
+  Row   2:          1  (counter == 2)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       58 Item    1  (counter == 3)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 3)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 3)_0      -                             
+  Row   2:          1  (counter == 3)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       60 Item    1  (counter == 4)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 4)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 4)_0      -                             
+  Row   2:          1  (counter == 4)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       62 Item    1  (counter == 6)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 6)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 6)_0      -                             
+  Row   2:          1  (counter == 6)_1      -                             
+
+
+FSM Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    FSM States                       3         3         0   100.00%
+    FSM Transitions                  4         3         1    75.00%
+
+================================FSM Details================================
+
+FSM Coverage for instance /top/DUT --
+
+FSM_ID: state
+    Current State Object : state
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+  35                 st0                   1
+  52                 st1                   2
+  30                 st2                   0
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                     st0                1000          
+                     st1                1000          
+                     st2                1000          
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+  47                   0                1000          st0 -> st1                    
+  65                   1                1000          st1 -> st2                    
+  30                   3                 999          st2 -> st0                    
+    Uncovered Transitions :
+    -----------------------
+Line            Trans_ID          Transition          
+----            --------          ----------          
+  30                   2          st1 -> st0          
+
+
+    Summary                       Bins      Hits    Misses  Coverage
+    -------                       ----      ----    ------  --------
+        FSM States                   3         3         0   100.00%
+        FSM Transitions              4         3         1    75.00%
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      24        24         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top/DUT --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder.v
+    1                                                module simpleadder (
+    2                                                    input  wire clk,
+    3                                                	input  wire en_i,
+    4                                                	input  wire ina,
+    5                                                	input  wire inb,
+    6                                                	output reg  en_o,
+    7                                                	output reg  out
+    8                                                );
+    9                                                
+    10                                               	integer counter, state;
+    11                                               	reg[1:0] temp_a, temp_b;
+    12                                               	reg[2:0] temp_out;
+    13                                               
+    14                                               	// Initial
+    15                                               	initial begin
+    16              1                          1     		counter  = 0;
+    17              1                          1     		temp_a   = 2'b00;
+    18              1                          1     		temp_b   = 2'b00;
+    19              1                          1     		temp_out = 3'b000;
+    20              1                          1     		out      = 0;
+    21              1                          1     		en_o     = 0;
+    22              1                          1     		state    = 0;
+    23                                               	end
+    24                                               	
+    25              1                       7000     	always@(posedge clk)
+    26                                               	begin
+    27                                               		// State 0: Wait for en_i
+    28                                               		if(en_i==1'b1)
+    29                                               		begin
+    30              1                       2000     			state = 1;
+    31                                               		end
+    32                                               
+    33                                               		case(state)
+    34                                               			// State 1: Start reading inputs
+    35                                               			1: begin
+    36              1                       2000     				temp_a = temp_a << 1;
+    37              1                       2000     				temp_a = temp_a | ina;
+    38                                               			
+    39              1                       2000     				temp_b = temp_b << 1;
+    40              1                       2000     				temp_b = temp_b | inb;
+    41                                               
+    42              1                       2000     				counter = counter + 1;
+    43                                               
+    44                                               				// After 2 bits, do the operation an move to the next state
+    45                                               				if(counter==2) begin
+    46              1                       1000     					temp_out = temp_a + temp_b;
+    47              1                       1000     					state = 2;
+    48                                               				end
+    49                                               			end
+    50                                               
+    51                                               			//State 2: Enable en_o and sends result to the output
+    52                                               			2: begin
+    53              1                       4000     				out <= temp_out[2];
+    54              1                       4000     				temp_out = temp_out << 1;
+    55                                               
+    56              1                       4000     				counter = counter + 1;
+    57                                               
+    58              1                       1000     				if(counter==3) en_o <= 1'b1;
+    59                                               
+    60              1                       1000     				if(counter==4) en_o <= 1'b0;
+    61                                               
+    62                                               				if(counter==6) begin
+    63              1                       1000     					counter = 0;
+    64              1                       1000     					out  = 1'b0;
+    65              1                       1000     					state = 0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         26        26         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top/DUT --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+                                       temp_a[1-0]           1           1      100.00 
+                                       temp_b[1-0]           1           1      100.00 
+                                     temp_out[2-0]           1           1      100.00 
+
+Total Node Count     =         13 
+Toggled Node Count   =         13 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (26 of 26 bins)
+
+=================================================================================
+=== Instance: /top
+=== Design Unit: work.top
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       2         2         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File sa_top.sv
+    5                                                module top ();
+    6                                                
+    7                                                sa_if sa_vif ();
+    8                                                simpleadder DUT (sa_vif.clk,sa_vif.en_i,sa_vif.ina,sa_vif.inb,sa_vif.en_o,sa_vif.out);
+    9                                                bind simpleadder sa_sva sva_inst (sa_vif.en_i, sa_vif.ina, sa_vif.inb, sa_vif.clk, sa_vif.out, sa_vif.en_o, DUT.temp_out);
+    10                                               
+    11                                               initial begin
+    12              1                          1         uvm_config_db #(virtual sa_if)::set(null,"uvm_test_top","sa_IF",sa_vif);
+    13              1                          1         run_test("sa_test");
+
+
+=================================================================================
+=== Instance: /sa_pkg
+=== Design Unit: work.sa_pkg
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       1         1         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/sa_pkg/sa_sequence/body/#ublk#127362839#12/immed__15
+                     sa_sequence.svh(15)                0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        60        16        44    26.66%
+
+================================Branch Details================================
+
+Branch Coverage for instance /sa_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File sa_config.svh
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***     `uvm_object_utils(sa_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               2                    ***0***     `uvm_object_utils(sa_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***     `uvm_object_utils(sa_config)
+    3               4                    ***0***     `uvm_object_utils(sa_config)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               5                    ***0***     `uvm_object_utils(sa_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***     `uvm_object_utils(sa_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+  File sa_sequence_item.svh
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***     `uvm_object_utils(sa_sequence_item)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                       1000     Count coming in to IF
+    3               2                    ***0***     `uvm_object_utils(sa_sequence_item)
+                                            1000     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***     `uvm_object_utils(sa_sequence_item)
+    3               4                    ***0***     `uvm_object_utils(sa_sequence_item)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                       1000     Count coming in to IF
+    3               5                    ***0***     `uvm_object_utils(sa_sequence_item)
+                                            1000     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***     `uvm_object_utils(sa_sequence_item)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+  File sa_sequence.svh
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***     `uvm_object_utils(sa_sequence)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                          1     Count coming in to IF
+    3               2                    ***0***     `uvm_object_utils(sa_sequence)
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***     `uvm_object_utils(sa_sequence)
+    3               4                    ***0***     `uvm_object_utils(sa_sequence)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                          1     Count coming in to IF
+    3               5                    ***0***     `uvm_object_utils(sa_sequence)
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***     `uvm_object_utils(sa_sequence)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+  File sa_driver.svh
+------------------------------------IF Branch------------------------------------
+    29                                      1000     Count coming in to IF
+    29              1                    ***0***             `uvm_info("run_phase",sa_seq_item.convert2string_stimulus(),UVM_HIGH)
+                                            1000     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+  File sa_monitor.svh
+------------------------------------IF Branch------------------------------------
+    43                                      1000     Count coming in to IF
+    43              1                    ***0***             `uvm_info("run_phase",sa_seq_item.convert2string(),UVM_HIGH)
+                                            1000     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+  File sa_agent.svh
+------------------------------------IF Branch------------------------------------
+    18                                         1     Count coming in to IF
+    18              1                    ***0***         if (!uvm_config_db #(sa_config)::get(this,"","CFG",sa_cfg))
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    19                                   ***0***     Count coming in to IF
+    19              1                    ***0***             `uvm_fatal("build_phase","Unable to get configuration object")
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    20                                         1     Count coming in to IF
+    20              1                          1         if (sa_cfg.sel_mode == UVM_ACTIVE) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    30                                         1     Count coming in to IF
+    30              1                          1         if (sa_cfg.sel_mode == UVM_ACTIVE) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+  File sa_scoreboard.svh
+------------------------------------IF Branch------------------------------------
+    33                                      1000     Count coming in to IF
+    33              1                    ***0***             if (sa_seq_item.out !== sa_ref) begin
+    37              1                       1000             else begin
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    34                                   ***0***     Count coming in to IF
+    34              1                    ***0***                 `uvm_error("run_phase",$sformatf("Comparison failed, Transaction recieved by the DUT: %s while the reference out = %0d",sa_seq_item.convert2string(),sa_ref));
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    38                                      1000     Count coming in to IF
+    38              1                    ***0***                 `uvm_info("run_phase",$sformatf("Correct sa_out : %s",sa_seq_item.convert2string()),UVM_HIGH);
+                                            1000     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    50                                         1     Count coming in to IF
+    50              1                          1         `uvm_info("report_phase",$sformatf("Total Successful Counts : %0d",correct_count),UVM_MEDIUM);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    51                                         1     Count coming in to IF
+    51              1                          1         `uvm_info("report_phase",$sformatf("Total Failed Counts : %0d",error_count),UVM_MEDIUM);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+  File sa_test.svh
+------------------------------------IF Branch------------------------------------
+    18                                         1     Count coming in to IF
+    18              1                    ***0***         if (!uvm_config_db#(virtual sa_if)::get(this,"","sa_IF",sa_cfg.sa_vif))
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    19                                   ***0***     Count coming in to IF
+    19              1                    ***0***             `uvm_fatal("build_phase","Test - Unable to get the virtual interface of the sa from the uvm_config_db");
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    27                                         1     Count coming in to IF
+    27              1                          1         `uvm_info("run_phase","Stimulus Generation Started",UVM_LOW)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    29                                         1     Count coming in to IF
+    29              1                          1         `uvm_info("run_phase","Stimulus Generation Ended",UVM_LOW)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       7         0         7     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /sa_pkg --
+
+  File sa_config.svh
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:          1  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:          1  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+
+
+----------------Focused Condition View-------------------
+Line       33 Item    1  (this.sa_seq_item.out !== this.sa_ref)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+                              Input Term   Covered  Reason for no coverage   Hint
+                             -----------  --------  -----------------------  --------------
+  (this.sa_seq_item.out !== this.sa_ref)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target                                Non-masking condition(s)      
+ ---------  ---------  --------------------                      -------------------------     
+  Row   1:          1  (this.sa_seq_item.out !== this.sa_ref)_0  -                             
+  Row   2:    ***0***  (this.sa_seq_item.out !== this.sa_ref)_1  -                             
+
+
+
+
+
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          6        na        na        na
+            Covergroup Bins         45        45         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /sa_pkg/sa_collector/sa_cov_grp                 100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #sa_seq_item.a__0#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #sa_seq_item.b__1#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/sa_pkg::sa_collector::sa_cov_grp  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin a_0                                           205          1          -    Covered              
+        bin a_1                                           300          1          -    Covered              
+        bin a_2                                           228          1          -    Covered              
+        bin a_3                                           267          1          -    Covered              
+        bin a_trans[0=>1]                                  57          1          -    Covered              
+        bin a_trans[1=>2]                                  66          1          -    Covered              
+        bin a_trans[2=>3]                                  61          1          -    Covered              
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin b_0                                           209          1          -    Covered              
+        bin b_1                                           252          1          -    Covered              
+        bin b_2                                           258          1          -    Covered              
+        bin b_3                                           281          1          -    Covered              
+        bin b_trans[0=>1]                                  55          1          -    Covered              
+        bin b_trans[1=>2]                                  64          1          -    Covered              
+        bin b_trans[2=>3]                                  65          1          -    Covered              
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        ignore_bin max_out                                  0                     -    ZERO                 
+        bin auto[0]                                        47          1          -    Covered              
+        bin auto[1]                                       118          1          -    Covered              
+        bin auto[2]                                       155          1          -    Covered              
+        bin auto[3]                                       254          1          -    Covered              
+        bin auto[4]                                       223          1          -    Covered              
+        bin auto[5]                                       132          1          -    Covered              
+        bin auto[6]                                        71          1          -    Covered              
+    Coverpoint #sa_seq_item.a__0#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       205          1          -    Covered              
+        bin auto[1]                                       300          1          -    Covered              
+        bin auto[2]                                       228          1          -    Covered              
+        bin auto[3]                                       267          1          -    Covered              
+    Coverpoint #sa_seq_item.b__1#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       209          1          -    Covered              
+        bin auto[1]                                       252          1          -    Covered              
+        bin auto[2]                                       258          1          -    Covered              
+        bin auto[3]                                       281          1          -    Covered              
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[3],auto[3]>                          71          1          -    Covered              
+            bin <auto[2],auto[3]>                          69          1          -    Covered              
+            bin <auto[1],auto[3]>                          91          1          -    Covered              
+            bin <auto[0],auto[3]>                          50          1          -    Covered              
+            bin <auto[3],auto[2]>                          63          1          -    Covered              
+            bin <auto[2],auto[2]>                          52          1          -    Covered              
+            bin <auto[1],auto[2]>                          91          1          -    Covered              
+            bin <auto[0],auto[2]>                          52          1          -    Covered              
+            bin <auto[3],auto[1]>                          80          1          -    Covered              
+            bin <auto[2],auto[1]>                          60          1          -    Covered              
+            bin <auto[1],auto[1]>                          56          1          -    Covered              
+            bin <auto[0],auto[1]>                          56          1          -    Covered              
+            bin <auto[3],auto[0]>                          53          1          -    Covered              
+            bin <auto[2],auto[0]>                          47          1          -    Covered              
+            bin <auto[1],auto[0]>                          62          1          -    Covered              
+            bin <auto[0],auto[0]>                          47          1          -    Covered              
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                     166       115        51    69.27%
+
+================================Statement Details================================
+
+Statement Coverage for instance /sa_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File sa_config.svh
+    1                                                class sa_config extends uvm_object;
+    2                                                
+    3               1                    ***0***     `uvm_object_utils(sa_config)
+    3               2                    ***0***     
+    3               3                    ***0***     
+    3               4                    ***0***     
+    3               5                    ***0***     
+    3               6                    ***0***     
+    3               7                    ***0***     
+    3               8                    ***0***     
+    3               9                    ***0***     
+    3              10                    ***0***     
+    4                                                
+    5                                                virtual sa_if sa_vif;
+    6                                                uvm_active_passive_enum sel_mode;
+    7                                                
+    8                                                function new (string name = "sa_config");
+    9               1                          1         super.new(name);
+
+  File sa_sequence_item.svh
+    1                                                class sa_sequence_item extends uvm_sequence_item;
+    2                                                
+    3               1                    ***0***     `uvm_object_utils(sa_sequence_item)
+    3               2                    ***0***     
+    3               3                    ***0***     
+    3               4                    ***0***     
+    3               5                    ***0***     
+    3               6                       1000     
+    3               7                    ***0***     
+    3               8                    ***0***     
+    3               9                       1000     
+    3              10                    ***0***     
+    4                                                
+    5                                                rand bit [1:0] a;
+    6                                                rand bit [1:0] b;
+    7                                                     bit [2:0] out;
+    8                                                
+    9                                                constraint a_c { a dist {0:/20, [1:3]:/80}; }
+    10                                               
+    11                                               constraint b_c { b dist {0:/20, [1:3]:/80}; }
+    12                                               
+    13                                               function new (string name = "sa_sequence_item");
+    14              1                       3002         super.new(name);    
+    15                                               endfunction
+    16                                               
+    17                                               function string convert2string ();
+    18              1                    ***0***         return $sformatf ("%s a = %0d, b = %0d, out = %0d", super.convert2string(),a,b,out);
+    19                                               endfunction
+    20                                               
+    21                                               function string convert2string_stimulus ();
+    22              1                    ***0***         return $sformatf ("%s a = %0d, b = %0d", super.convert2string(),a,b);
+
+  File sa_sequencer.svh
+    1                                                class sa_sequencer extends uvm_sequencer #(sa_sequence_item);
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_sequencer)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                function new (string name = "sa_sequencer", uvm_component parent = null);
+    6               1                          1         super.new(name,parent);
+
+  File sa_sequence.svh
+    1                                                class sa_sequence extends uvm_sequence #(sa_sequence_item);
+    2                                                
+    3               1                    ***0***     `uvm_object_utils(sa_sequence)
+    3               2                    ***0***     
+    3               3                    ***0***     
+    3               4                    ***0***     
+    3               5                    ***0***     
+    3               6                          1     
+    3               7                    ***0***     
+    3               8                    ***0***     
+    3               9                          1     
+    3              10                    ***0***     
+    4                                                
+    5                                                sa_sequence_item sa_seq_item;
+    6                                                
+    7                                                function new (string name = "sa_sequence");
+    8               1                          1         super.new(name);    
+    9                                                endfunction
+    10                                               
+    11                                               task body ();
+    12              1                       1000         repeat(TESTS) begin
+    13              1                       1000             sa_seq_item = sa_sequence_item::type_id::create("sa_seq_item");
+    14              1                       1000             start_item(sa_seq_item);
+    15                                                       assert(sa_seq_item.randomize());
+    16              1                       1000             finish_item(sa_seq_item);        
+
+  File sa_driver.svh
+    1                                                class sa_driver extends uvm_driver #(sa_sequence_item);
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_driver)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                virtual sa_if sa_vif;
+    6                                                sa_sequence_item sa_seq_item;
+    7                                                
+    8                                                function new (string name = "sa_driver", uvm_component parent = null);
+    9               1                          1         super.new(name,parent);    
+    10                                               endfunction
+    11                                               
+    12                                               task run_phase (uvm_phase phase);
+    13              1                          1         super.run_phase(phase);
+    14              1                          1         forever begin
+    15              1                       1001             sa_seq_item = sa_sequence_item::type_id::create("sa_seq_item");
+    16              1                       1001             seq_item_port.get_next_item(sa_seq_item);
+    17              1                       1000             @(posedge sa_vif.clk);
+    18              1                       1000             sa_vif.cb_driver.en_i <= 1'b1;
+    19              1                       1000             sa_vif.cb_driver.ina <= sa_seq_item.a[1];
+    20              1                       1000             sa_vif.cb_driver.inb <= sa_seq_item.b[1];
+    21              1                       1000             @(posedge sa_vif.clk);
+    22              1                       1000             sa_vif.cb_driver.ina <= sa_seq_item.a[0];
+    23              1                       1000             sa_vif.cb_driver.inb <= sa_seq_item.b[0];
+    24              1                       1000             @(posedge sa_vif.clk);
+    25              1                       1000             sa_vif.cb_driver.en_i <= 1'b0;
+    26              1                       1000             wait(sa_vif.cb_monitor.en_o == 1'b1);
+    27              1                       3000             repeat(3) @(posedge sa_vif.clk);
+    27              2                       3000     
+    28              1                       1000             seq_item_port.item_done();
+    29              1                    ***0***             `uvm_info("run_phase",sa_seq_item.convert2string_stimulus(),UVM_HIGH)
+
+  File sa_monitor.svh
+    1                                                class sa_monitor extends uvm_monitor;
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_monitor)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                virtual sa_if sa_vif;
+    6                                                sa_sequence_item sa_seq_item;
+    7                                                uvm_analysis_port #(sa_sequence_item) mon_ap;
+    8                                                
+    9                                                function new (string name = "sa_monitor", uvm_component parent = null);
+    10              1                          1         super.new(name,parent);    
+    11                                               endfunction
+    12                                               
+    13                                               function void build_phase (uvm_phase phase);
+    14              1                          1         super.build_phase(phase);
+    15              1                          1         mon_ap = new("mon_ap",this);
+    16                                               endfunction
+    17                                               
+    18                                               task run_phase (uvm_phase phase);
+    19              1                          1         super.run_phase(phase);
+    20              1                          1         forever begin
+    21              1                       1001             sa_seq_item = sa_sequence_item::type_id::create("sa_seq_item");
+    22                                                       fork
+    23                                                           begin  // Monitor Input
+    24              1                       1001                     @(posedge sa_vif.clk iff (sa_vif.cb_monitor.en_i == 1'b1));
+    25              1                       1000                     sa_seq_item.a[1] = sa_vif.cb_monitor.ina;
+    26              1                       1000                     sa_seq_item.b[1] = sa_vif.cb_monitor.inb;
+    27              1                       1000                     @(posedge sa_vif.clk);
+    28              1                       1000                     sa_seq_item.a[0] = sa_vif.cb_monitor.ina;
+    29              1                       1000                     sa_seq_item.b[0] = sa_vif.cb_monitor.inb;
+    30              1                       1000                     @(posedge sa_vif.clk);
+    31                                                           end
+    32                                               
+    33                                                           begin  // Monitor Output
+    34              1                       1001                     @(posedge sa_vif.clk iff (sa_vif.cb_monitor.en_o == 1'b1));
+    35              1                       1000                     sa_seq_item.out[2] = sa_vif.cb_monitor.out;
+    36              1                       1000                     @(posedge sa_vif.clk);
+    37              1                       1000                     sa_seq_item.out[1] = sa_vif.cb_monitor.out;
+    38              1                       1000                     @(posedge sa_vif.clk);
+    39              1                       1000                     sa_seq_item.out[0] = sa_vif.cb_monitor.out;
+    40                                                           end
+    41                                                       join
+    42              1                       1000             mon_ap.write(sa_seq_item);
+    43              1                    ***0***             `uvm_info("run_phase",sa_seq_item.convert2string(),UVM_HIGH)
+
+  File sa_agent.svh
+    1                                                class sa_agent extends uvm_agent;
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_agent)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                sa_sequencer sqr;
+    6                                                sa_monitor mon;
+    7                                                sa_driver drv;
+    8                                                sa_config sa_cfg;
+    9                                                
+    10                                               uvm_analysis_port #(sa_sequence_item) agt_ap;
+    11                                               
+    12                                               function new (string name = "sa_agent", uvm_component parent = null);
+    13              1                          1         super.new(name,parent);    
+    14                                               endfunction
+    15                                               
+    16                                               function void build_phase (uvm_phase phase);
+    17              1                          1         super.build_phase(phase);
+    18                                                   if (!uvm_config_db #(sa_config)::get(this,"","CFG",sa_cfg))
+    19              1                    ***0***             `uvm_fatal("build_phase","Unable to get configuration object")
+    20                                                   if (sa_cfg.sel_mode == UVM_ACTIVE) begin
+    21              1                          1             sqr = sa_sequencer::type_id::create("sqr",this);
+    22              1                          1             drv = sa_driver::type_id::create("drv",this);
+    23                                                   end
+    24              1                          1         mon = sa_monitor::type_id::create("mon",this);
+    25              1                          1         agt_ap = new("agt_ap",this);
+    26                                               endfunction
+    27                                               
+    28                                               function void connect_phase (uvm_phase phase);
+    29              1                          1         super.connect_phase(phase);
+    30                                                   if (sa_cfg.sel_mode == UVM_ACTIVE) begin
+    31              1                          1             drv.sa_vif = sa_cfg.sa_vif;
+    32              1                          1             drv.seq_item_port.connect(sqr.seq_item_export);
+    33                                                   end
+    34              1                          1         mon.sa_vif = sa_cfg.sa_vif;
+    35              1                          1         mon.mon_ap.connect(agt_ap);
+
+  File sa_scoreboard.svh
+    1                                                class sa_scoreboard extends uvm_scoreboard;
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_scoreboard)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                uvm_analysis_export #(sa_sequence_item) sb_export;
+    6                                                uvm_tlm_analysis_fifo #(sa_sequence_item) sb_fifo;
+    7                                                
+    8                                                sa_sequence_item sa_seq_item;
+    9                                                
+    10                                               bit [2:0] sa_ref;
+    11                                               int error_count, correct_count;
+    12                                               
+    13                                               function new (string name = "sa_scoreboard", uvm_component parent = null);
+    14              1                          1         super.new(name,parent);    
+    15                                               endfunction
+    16                                               
+    17                                               function void build_phase (uvm_phase phase);
+    18              1                          1         super.build_phase(phase);
+    19              1                          1         sb_export = new("sb_export",this);
+    20              1                          1         sb_fifo = new("sb_fifo",this);
+    21                                               endfunction
+    22                                               
+    23                                               function void connect_phase (uvm_phase phase);
+    24              1                          1         super.connect_phase(phase);
+    25              1                          1         sb_export.connect(sb_fifo.analysis_export);
+    26                                               endfunction
+    27                                               
+    28                                               task run_phase (uvm_phase phase);
+    29              1                          1         super.run_phase(phase);
+    30              1                          1         forever begin
+    31              1                       1001             sb_fifo.get(sa_seq_item);
+    32              1                       1000             ref_model(sa_seq_item);
+    33                                                       if (sa_seq_item.out !== sa_ref) begin
+    34              1                    ***0***                 `uvm_error("run_phase",$sformatf("Comparison failed, Transaction recieved by the DUT: %s while the reference out = %0d",sa_seq_item.convert2string(),sa_ref));
+    35              1                    ***0***                 error_count++;
+    36                                                       end
+    37                                                       else begin
+    38              1                    ***0***                 `uvm_info("run_phase",$sformatf("Correct sa_out : %s",sa_seq_item.convert2string()),UVM_HIGH);
+    39              1                       1000                 correct_count++;
+    40                                                       end
+    41                                                   end
+    42                                               endtask
+    43                                               
+    44                                               function void ref_model (sa_sequence_item sa_seq_item);
+    45              1                       1000         sa_ref = sa_seq_item.a + sa_seq_item.b;
+    46                                               endfunction
+    47                                               
+    48                                               function void report_phase (uvm_phase phase);
+    49              1                          1         super.report_phase(phase);
+    50              1                          1         `uvm_info("report_phase",$sformatf("Total Successful Counts : %0d",correct_count),UVM_MEDIUM);
+    51              1                          1         `uvm_info("report_phase",$sformatf("Total Failed Counts : %0d",error_count),UVM_MEDIUM);
+
+  File sa_collector.svh
+    1                                                class sa_collector extends uvm_component;
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_collector)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                uvm_analysis_port #(sa_sequence_item) cov_export;
+    6                                                uvm_tlm_analysis_fifo #(sa_sequence_item) cov_fifo;
+    7                                                
+    8                                                sa_sequence_item sa_seq_item;
+    9                                                
+    10                                               covergroup sa_cov_grp;
+    11                                                   a_cp: coverpoint sa_seq_item.a {bins a_0 = {0};
+    12                                                                             bins a_1 = {1};
+    13                                                                             bins a_2 = {2};
+    14                                                                             bins a_3 = {3};
+    15                                                                             bins a_trans[] = (0=>1),(1=>2),(2=>3);}
+    16                                               
+    17                                                   b_cp: coverpoint sa_seq_item.b {bins b_0 = {0};
+    18                                                                             bins b_1 = {1};
+    19                                                                             bins b_2 = {2};
+    20                                                                             bins b_3 = {3};
+    21                                                                             bins b_trans[] = (0=>1),(1=>2),(2=>3);}
+    22                                               
+    23                                                   out_cp: coverpoint sa_seq_item.out {ignore_bins max_out = {7};}
+    24                                                   axb: cross sa_seq_item.a, sa_seq_item.b;
+    25                                               endgroup
+    26                                               
+    27                                               function new (string name = "sa_collector", uvm_component parent = null);
+    28              1                          1         super.new(name,parent);
+    29              1                          1         sa_cov_grp = new();
+    30                                               endfunction
+    31                                               
+    32                                               function void build_phase (uvm_phase phase);
+    33              1                          1         super.build_phase(phase);
+    34              1                          1         cov_export = new("cov_export",this);
+    35              1                          1         cov_fifo = new("cov_fifo",this);
+    36                                               endfunction
+    37                                               
+    38                                               function void connect_phase (uvm_phase phase);
+    39              1                          1         super.connect_phase(phase);
+    40              1                          1         cov_export.connect(cov_fifo.analysis_export);
+    41                                               endfunction
+    42                                               
+    43                                               task run_phase (uvm_phase phase);
+    44              1                          1         super.run_phase(phase);
+    45              1                          1         forever begin
+    46              1                       1001             cov_fifo.get(sa_seq_item);
+    47              1                       1000             sa_cov_grp.sample();
+
+  File sa_env.svh
+    1                                                class sa_env extends uvm_env;
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_env)
+    3               2                    ***0***     
+    3               3                          2     
+    4                                                
+    5                                                sa_agent agt;
+    6                                                sa_scoreboard sb;
+    7                                                sa_collector cov;
+    8                                                
+    9                                                function new (string name = "sa_env", uvm_component parent = null);
+    10              1                          1         super.new(name,parent);    
+    11                                               endfunction
+    12                                               
+    13                                               function void build_phase (uvm_phase phase);
+    14              1                          1         super.build_phase(phase);
+    15              1                          1         agt = sa_agent::type_id::create("agt",this);
+    16              1                          1         sb = sa_scoreboard::type_id::create("sb",this);
+    17              1                          1         cov = sa_collector::type_id::create("cov",this);    
+    18                                               endfunction
+    19                                               
+    20                                               function void connect_phase (uvm_phase phase);
+    21              1                          1         agt.agt_ap.connect(sb.sb_export);
+    22              1                          1         agt.agt_ap.connect(cov.cov_export);
+
+  File sa_test.svh
+    1                                                class sa_test extends uvm_test;
+    2                                                
+    3               1                    ***0***     `uvm_component_utils(sa_test)
+    3               2                    ***0***     
+    3               3                          4     
+    4                                                
+    5                                                sa_env env;
+    6                                                sa_config sa_cfg;
+    7                                                sa_sequence seq;
+    8                                                
+    9                                                function new (string name = "sa_test", uvm_component parent = null);
+    10              1                          1         super.new(name,parent); 
+    11                                               endfunction
+    12                                               
+    13                                               function void build_phase (uvm_phase phase);
+    14              1                          1         super.build_phase(phase);
+    15              1                          1         env = sa_env::type_id::create("env",this);
+    16              1                          1         sa_cfg = sa_config::type_id::create("sa_cfg");
+    17              1                          1         seq = sa_sequence::type_id::create("seq");
+    18                                                   if (!uvm_config_db#(virtual sa_if)::get(this,"","sa_IF",sa_cfg.sa_vif))
+    19              1                    ***0***             `uvm_fatal("build_phase","Test - Unable to get the virtual interface of the sa from the uvm_config_db");
+    20              1                          1         sa_cfg.sel_mode = UVM_ACTIVE;
+    21              1                          1         uvm_config_db#(sa_config)::set(this,"*","CFG",sa_cfg);
+    22                                               endfunction
+    23                                               
+    24                                               task run_phase (uvm_phase phase);
+    25              1                          1         super.run_phase(phase);
+    26              1                          1         phase.raise_objection(this);
+    27              1                          1         `uvm_info("run_phase","Stimulus Generation Started",UVM_LOW)
+    28              1                          1         seq.start(env.agt.sqr);
+    29              1                          1         `uvm_info("run_phase","Stimulus Generation Ended",UVM_LOW)
+    30              1                          1         phase.drop_objection(this);
+
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /sa_pkg/sa_collector/sa_cov_grp                 100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #sa_seq_item.a__0#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #sa_seq_item.b__1#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/sa_pkg::sa_collector::sa_cov_grp  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin a_0                                           205          1          -    Covered              
+        bin a_1                                           300          1          -    Covered              
+        bin a_2                                           228          1          -    Covered              
+        bin a_3                                           267          1          -    Covered              
+        bin a_trans[0=>1]                                  57          1          -    Covered              
+        bin a_trans[1=>2]                                  66          1          -    Covered              
+        bin a_trans[2=>3]                                  61          1          -    Covered              
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin b_0                                           209          1          -    Covered              
+        bin b_1                                           252          1          -    Covered              
+        bin b_2                                           258          1          -    Covered              
+        bin b_3                                           281          1          -    Covered              
+        bin b_trans[0=>1]                                  55          1          -    Covered              
+        bin b_trans[1=>2]                                  64          1          -    Covered              
+        bin b_trans[2=>3]                                  65          1          -    Covered              
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        ignore_bin max_out                                  0                     -    ZERO                 
+        bin auto[0]                                        47          1          -    Covered              
+        bin auto[1]                                       118          1          -    Covered              
+        bin auto[2]                                       155          1          -    Covered              
+        bin auto[3]                                       254          1          -    Covered              
+        bin auto[4]                                       223          1          -    Covered              
+        bin auto[5]                                       132          1          -    Covered              
+        bin auto[6]                                        71          1          -    Covered              
+    Coverpoint #sa_seq_item.a__0#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       205          1          -    Covered              
+        bin auto[1]                                       300          1          -    Covered              
+        bin auto[2]                                       228          1          -    Covered              
+        bin auto[3]                                       267          1          -    Covered              
+    Coverpoint #sa_seq_item.b__1#                     100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       209          1          -    Covered              
+        bin auto[1]                                       252          1          -    Covered              
+        bin auto[2]                                       258          1          -    Covered              
+        bin auto[3]                                       281          1          -    Covered              
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[3],auto[3]>                          71          1          -    Covered              
+            bin <auto[2],auto[3]>                          69          1          -    Covered              
+            bin <auto[1],auto[3]>                          91          1          -    Covered              
+            bin <auto[0],auto[3]>                          50          1          -    Covered              
+            bin <auto[3],auto[2]>                          63          1          -    Covered              
+            bin <auto[2],auto[2]>                          52          1          -    Covered              
+            bin <auto[1],auto[2]>                          91          1          -    Covered              
+            bin <auto[0],auto[2]>                          52          1          -    Covered              
+            bin <auto[3],auto[1]>                          80          1          -    Covered              
+            bin <auto[2],auto[1]>                          60          1          -    Covered              
+            bin <auto[1],auto[1]>                          56          1          -    Covered              
+            bin <auto[0],auto[1]>                          56          1          -    Covered              
+            bin <auto[3],auto[0]>                          53          1          -    Covered              
+            bin <auto[2],auto[0]>                          47          1          -    Covered              
+            bin <auto[1],auto[0]>                          62          1          -    Covered              
+            bin <auto[0],auto[0]>                          47          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/top/DUT/sva_inst/Adder_Out_Cover        sa_sva Verilog  SVA  sa_sva.sv(12)    270 Covered   
+/top/DUT/sva_inst/Adder_En_O_Cover       sa_sva Verilog  SVA  sa_sva.sv(15)   1000 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 2
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top/DUT/sva_inst/Adder_Out_Assertion
+                     sa_sva.sv(11)                      0          1
+/top/DUT/sva_inst/Adder_En_O_Assertion
+                     sa_sva.sv(14)                      0          1
+/sa_pkg/sa_sequence/body/#ublk#127362839#12/immed__15
+                     sa_sequence.svh(15)                0          1
+
+Total Coverage By Instance (filtered view): 80.59%
+
