@@ -1,0 +1,6 @@
+../RTL_Subordinate/AHB5_Slave_Memory.v
+../UVM_Manager/shared_pkg.sv
+../UVM_Manager/AHB5_BFM_interface.sv
+../UVM_Manager/AHB5_pkg.sv
+../UVM_Manager/AHB5_sva.sv
+../UVM_Manager/AHB5_top.sv
