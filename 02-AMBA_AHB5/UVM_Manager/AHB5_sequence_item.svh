@@ -69,7 +69,7 @@ constraint HWSTRB_c {
 }
 
 constraint HTRANS_c {
-    if (!HRESETn || HRESP)
+    if (!HRESETn || !HSELx)
         HTRANS == IDLE;
     else if (!HREADY)
         HTRANS == BUSY;
@@ -146,3 +146,4 @@ function string convert2string_stimulus ();
 endfunction
 
 endclass
+
