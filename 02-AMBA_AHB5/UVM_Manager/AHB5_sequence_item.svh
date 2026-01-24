@@ -100,13 +100,13 @@ function void post_randomize ();
     if (HRESETn && HREADY && HSELx) begin
         if (HBURST_cs == SINGLE)
             hburst_cntr = 0;
-        else if ((HBURST_cs == INCR) && (hburst_cntr < 2))
+        else if ((HBURST_cs == INCR) && (hburst_cntr < 1))
             hburst_cntr += 1;
-        else if (((HBURST_cs == WRAP4) || (HBURST_cs == INCR4)) && (hburst_cntr < 4))
+        else if (((HBURST_cs == WRAP4) || (HBURST_cs == INCR4)) && (hburst_cntr < 3))
             hburst_cntr += 1;
-        else if (((HBURST_cs == WRAP8) || (HBURST_cs == INCR8)) && (hburst_cntr < 8))
+        else if (((HBURST_cs == WRAP8) || (HBURST_cs == INCR8)) && (hburst_cntr < 7))
             hburst_cntr += 1;
-        else if (((HBURST_cs == WRAP16) || (HBURST_cs == INCR16)) && (hburst_cntr < 16))
+        else if (((HBURST_cs == WRAP16) || (HBURST_cs == INCR16)) && (hburst_cntr < 15))
             hburst_cntr += 1;
         else
             hburst_cntr = 0;
@@ -146,4 +146,5 @@ function string convert2string_stimulus ();
 endfunction
 
 endclass
+
 
