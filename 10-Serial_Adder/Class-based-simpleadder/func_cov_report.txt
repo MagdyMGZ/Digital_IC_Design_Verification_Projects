@@ -1,0 +1,933 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /simpleadder_oop_tb/adderif
+=== Design Unit: work.adder_if
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         6         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /simpleadder_oop_tb/adderif --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File adder_interface.sv
+    3                                                interface adder_if ();
+    4                                                    // Signals Declaration
+    5                                                    logic clk, en_i, ina, inb;
+    6                                                    logic en_o, out;
+    7                                                
+    8                                                    // Clock Generation
+    9                                                    initial begin
+    10              1                          1             clk = 0;
+    11              1                          1             forever begin
+    12              1                      14000                 #10 clk = ~clk;
+    12              2                      13999     
+    13                                                       end
+    14                                                   end
+    15                                               
+    16                                                   // Clocking Blocks is triggered in Observed Region
+    17                                                   // 1st Clock Cycle Drive x and Monitor x
+    18                                                   // Driving done at #1step after the previous posedge in Postponed Region of next timestep in the next #1 make 9ns Setup slack before the next posedge
+    19                                                   // Monitoring done at #0 the corresponding (inputs/outputs) at the Observed Region of the current timestep
+    20                                                   
+    21                                                   // Clocking Blocking for Synchronization Between Driver and DUT
+    22              1                          1         clocking cb_driver @(posedge clk);
+    23                                                       default output #1step;
+    24                                                       output en_i, ina, inb;  // Driven Output from Driver Into the DUT (write-only, can't be sampled)
+    25                                                   endclocking
+    26                                               
+    27                                                   // Clocking Blocking for Synchronization Between DUT & Monitors
+    28              1                          1         clocking cb_monitor @(posedge clk);
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         12        12         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /simpleadder_oop_tb/adderif --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+
+Total Node Count     =          6 
+Toggled Node Count   =          6 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (12 of 12 bins)
+
+=================================================================================
+=== Instance: /simpleadder_oop_tb/DUT/sva_inst
+=== Design Unit: work.adder_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       2         2         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/simpleadder_oop_tb/DUT/sva_inst/Adder_Out_Assertion
+                     adder_sva.sv(11)                   0          1
+/simpleadder_oop_tb/DUT/sva_inst/Adder_En_O_Assertion
+                     adder_sva.sv(14)                   0          1
+
+Directive Coverage:
+    Directives                       2         2         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/simpleadder_oop_tb/DUT/sva_inst/Adder_Out_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(12) 253 Covered   
+/simpleadder_oop_tb/DUT/sva_inst/Adder_En_O_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(15)1000 Covered   
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         18        18         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /simpleadder_oop_tb/DUT/sva_inst --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+                                     temp_out[0-2]           1           1      100.00 
+
+Total Node Count     =          9 
+Toggled Node Count   =          9 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (18 of 18 bins)
+
+=================================================================================
+=== Instance: /simpleadder_oop_tb/DUT
+=== Design Unit: work.simpleadder
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        13        13         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /simpleadder_oop_tb/DUT
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder.v
+------------------------------------IF Branch------------------------------------
+    28                                      7000     Count coming in to IF
+    28              1                       2000     		if(en_i==1'b1)
+                                            5000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    33                                      7000     Count coming in to CASE
+    35              1                       2000     			1: begin
+    52              1                       4000     			2: begin
+                                            1000     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    45                                      2000     Count coming in to IF
+    45              1                       1000     				if(counter==2) begin
+                                            1000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    58                                      4000     Count coming in to IF
+    58              1                       1000     				if(counter==3) en_o <= 1'b1;
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    60                                      4000     Count coming in to IF
+    60              1                       1000     				if(counter==4) en_o <= 1'b0;
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    62                                      4000     Count coming in to IF
+    62              1                       1000     				if(counter==6) begin
+                                            3000     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       4         4         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /simpleadder_oop_tb/DUT --
+
+  File simpleadder.v
+----------------Focused Condition View-------------------
+Line       45 Item    1  (counter == 2)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 2)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 2)_0      -                             
+  Row   2:          1  (counter == 2)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       58 Item    1  (counter == 3)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 3)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 3)_0      -                             
+  Row   2:          1  (counter == 3)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       60 Item    1  (counter == 4)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 4)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 4)_0      -                             
+  Row   2:          1  (counter == 4)_1      -                             
+
+----------------Focused Condition View-------------------
+Line       62 Item    1  (counter == 6)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (counter == 6)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (counter == 6)_0      -                             
+  Row   2:          1  (counter == 6)_1      -                             
+
+
+FSM Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    FSM States                       3         3         0   100.00%
+    FSM Transitions                  3         3         0   100.00%
+
+================================FSM Details================================
+
+FSM Coverage for instance /simpleadder_oop_tb/DUT --
+
+FSM_ID: state
+    Current State Object : state
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+  35                 st0                   1
+  52                 st1                   2
+  30                 st2                   0
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                     st0                1000          
+                     st1                1000          
+                     st2                1000          
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+  47                   0                1000          st0 -> st1                    
+  65                   1                1000          st1 -> st2                    
+  30                   3                 999          st2 -> st0                    
+
+
+    Summary                       Bins      Hits    Misses  Coverage
+    -------                       ----      ----    ------  --------
+        FSM States                   3         3         0   100.00%
+        FSM Transitions              3         3         0   100.00%
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      24        24         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /simpleadder_oop_tb/DUT --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder.v
+    1                                                module simpleadder (
+    2                                                    input  wire clk,
+    3                                                	input  wire en_i,
+    4                                                	input  wire ina,
+    5                                                	input  wire inb,
+    6                                                	output reg  en_o,
+    7                                                	output reg  out
+    8                                                );
+    9                                                
+    10                                               	integer counter, state;
+    11                                               	reg[1:0] temp_a, temp_b;
+    12                                               	reg[2:0] temp_out;
+    13                                               
+    14                                               	// Initial
+    15                                               	initial begin
+    16              1                          1     		counter  = 0;
+    17              1                          1     		temp_a   = 2'b00;
+    18              1                          1     		temp_b   = 2'b00;
+    19              1                          1     		temp_out = 3'b000;
+    20              1                          1     		out      = 0;
+    21              1                          1     		en_o     = 0;
+    22              1                          1     		state    = 0;
+    23                                               	end
+    24                                               	
+    25              1                       7000     	always@(posedge clk)
+    26                                               	begin
+    27                                               		// State 0: Wait for en_i
+    28                                               		if(en_i==1'b1)
+    29                                               		begin
+    30              1                       2000     			state = 1;
+    31                                               		end
+    32                                               
+    33                                               		case(state)
+    34                                               			// State 1: Start reading inputs
+    35                                               			1: begin
+    36              1                       2000     				temp_a = temp_a << 1;
+    37              1                       2000     				temp_a = temp_a | ina;
+    38                                               			
+    39              1                       2000     				temp_b = temp_b << 1;
+    40              1                       2000     				temp_b = temp_b | inb;
+    41                                               
+    42              1                       2000     				counter = counter + 1;
+    43                                               
+    44                                               				// After 2 bits, do the operation an move to the next state
+    45                                               				if(counter==2) begin
+    46              1                       1000     					temp_out = temp_a + temp_b;
+    47              1                       1000     					state = 2;
+    48                                               				end
+    49                                               			end
+    50                                               
+    51                                               			//State 2: Enable en_o and sends result to the output
+    52                                               			2: begin
+    53              1                       4000     				out <= temp_out[2];
+    54              1                       4000     				temp_out = temp_out << 1;
+    55                                               
+    56              1                       4000     				counter = counter + 1;
+    57                                               
+    58              1                       1000     				if(counter==3) en_o <= 1'b1;
+    59                                               
+    60              1                       1000     				if(counter==4) en_o <= 1'b0;
+    61                                               
+    62                                               				if(counter==6) begin
+    63              1                       1000     					counter = 0;
+    64              1                       1000     					out  = 1'b0;
+    65              1                       1000     					state = 0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         26        26         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /simpleadder_oop_tb/DUT --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                               clk           1           1      100.00 
+                                              en_i           1           1      100.00 
+                                              en_o           1           1      100.00 
+                                               ina           1           1      100.00 
+                                               inb           1           1      100.00 
+                                               out           1           1      100.00 
+                                       temp_a[1-0]           1           1      100.00 
+                                       temp_b[1-0]           1           1      100.00 
+                                     temp_out[2-0]           1           1      100.00 
+
+Total Node Count     =         13 
+Toggled Node Count   =         13 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (26 of 26 bins)
+
+=================================================================================
+=== Instance: /simpleadder_oop_tb
+=== Design Unit: work.simpleadder_oop_tb
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      24        24         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /simpleadder_oop_tb --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File simpleadder_oop_tb.sv
+    2                                                module simpleadder_oop_tb ();
+    3                                                	// declare your interface here
+    4                                                	adder_if adderif();
+    5                                                
+    6                                                	// instantiate DUT and connect it to interface
+    7                                                	simpleadder DUT (
+    8                                                		.clk(adderif.clk),
+    9                                                		.en_i(adderif.en_i),
+    10                                               		.ina(adderif.ina),
+    11                                               		.inb(adderif.inb),
+    12                                               		.en_o(adderif.en_o),
+    13                                               		.out(adderif.out)
+    14                                               	);
+    15                                               	bind simpleadder adder_sva sva_inst (adderif.en_i, adderif.ina, adderif.inb, adderif.clk, adderif.out, adderif.en_o, DUT.temp_out);
+    16                                               
+    17                                               	// declare components handle
+    18                                               	adder_generator m_generator;
+    19                                               	adder_driver    m_driver;
+    20                                               	monitor_output  m_monitor_output;
+    21                                               	monitor_input   m_monitor_input;
+    22                                               	adder_collector m_cov_collector;
+    23                                               	adder_checker   m_adder_checker;
+    24                                               
+    25                                               	// construct all object
+    26                                               	// connect virtual interface handles
+    27                                               	function void build_env ();
+    28              1                          1     		m_generator      = new();
+    29              1                          1     		m_driver         = new(adderif);
+    30              1                          1     		m_monitor_input  = new(adderif);
+    31              1                          1     		m_monitor_output = new(adderif);
+    32              1                          1     		m_cov_collector  = new();
+    33              1                          1     		m_adder_checker  = new(); // no interface should be used here
+    34                                               	endfunction
+    35                                               	
+    36                                               	// connect mailboxes in object to each other
+    37                                               	// remember that mailboxes are classes that can be accessed via object handles 
+    38                                               	function void connect_env (); // Connect mailboxes
+    39              1                          1     		m_driver.stimulus_mbx   = m_generator.stimulus_mbx;
+    40                                               		
+    41              1                          1     		m_adder_checker.in_mbx  = m_monitor_input.in_check_mbx;
+    42              1                          1     		m_adder_checker.out_mbx = m_monitor_output.out_check_mbx;
+    43                                               
+    44              1                          1     		m_cov_collector.in_mbx  = m_monitor_input.in_cov_mbx;
+    45              1                          1     		m_cov_collector.out_mbx = m_monitor_output.out_cov_mbx;
+    46                                               	endfunction
+    47                                               	
+    48                                               	initial begin
+    49              1                          1     		$display("--------- Start  Testing ---------");
+    50              1                          1     		build_env();
+    51              1                          1     		connect_env();
+    52                                               		// fork join_any the main tasks inside your classes here
+    53              1                          1     		fork : test_fork
+    54              1                          1     			m_generator.run(TESTS);
+    55              1                          1     			m_driver.run();
+    56              1                          1     			m_monitor_input.run();
+    57              1                          1     			m_monitor_output.run();
+    58              1                          1     			m_adder_checker.run();
+    59              1                          1     			m_cov_collector.run();
+    60              1                          1     			wait(m_adder_checker.done) disable test_fork;
+    60              2                          1     
+    61                                               		join
+    62              1                          1     		$finish();
+
+
+=================================================================================
+=== Instance: /adder_package
+=== Design Unit: work.adder_package
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       1         1         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/adder_package/adder_generator/run/#ublk#30728149#5/Randome_Stimulus
+                     adder_generator.svh(7)             0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         3         3         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /adder_package
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File adder_checker.svh
+------------------------------------IF Branch------------------------------------
+    14                                      1000     Count coming in to IF
+    18              1                       1000                 else begin
+Branch totals: 1 hit of 1 branch = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    22                                      1000     Count coming in to IF
+    22              1                          1                 if (correct_count == TESTS) done = 1;
+                                             999     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       1         1         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /adder_package --
+
+  File adder_checker.svh
+----------------Focused Condition View-------------------
+Line       22 Item    1  (this.correct_count == 1000)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+                    Input Term   Covered  Reason for no coverage   Hint
+                   -----------  --------  -----------------------  --------------
+  (this.correct_count == 1000)         Y
+
+     Rows:       Hits  FEC Target                      Non-masking condition(s)      
+ ---------  ---------  --------------------            -------------------------     
+  Row   1:          1  (this.correct_count == 1000)_0  -                             
+  Row   2:          1  (this.correct_count == 1000)_1  -                             
+
+
+
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          6        na        na        na
+            Covergroup Bins         45        45         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /adder_package/adder_collector/adder_cv_grp     100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #in_tr.a__0#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #in_tr.b__1#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/adder_package::adder_collector::adder_cv_grp  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin a_0                                           181          1          -    Covered              
+        bin a_1                                           285          1          -    Covered              
+        bin a_2                                           265          1          -    Covered              
+        bin a_3                                           269          1          -    Covered              
+        bin a_trans[0=>1]                                  45          1          -    Covered              
+        bin a_trans[1=>2]                                  73          1          -    Covered              
+        bin a_trans[2=>3]                                  63          1          -    Covered              
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin b_0                                           188          1          -    Covered              
+        bin b_1                                           252          1          -    Covered              
+        bin b_2                                           261          1          -    Covered              
+        bin b_3                                           299          1          -    Covered              
+        bin b_trans[0=>1]                                  49          1          -    Covered              
+        bin b_trans[1=>2]                                  59          1          -    Covered              
+        bin b_trans[2=>3]                                  74          1          -    Covered              
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        ignore_bin max_out                                  0                     -    ZERO                 
+        bin auto[0]                                        34          1          -    Covered              
+        bin auto[1]                                       103          1          -    Covered              
+        bin auto[2]                                       157          1          -    Covered              
+        bin auto[3]                                       254          1          -    Covered              
+        bin auto[4]                                       219          1          -    Covered              
+        bin auto[5]                                       160          1          -    Covered              
+        bin auto[6]                                        73          1          -    Covered              
+    Coverpoint #in_tr.a__0#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       181          1          -    Covered              
+        bin auto[1]                                       285          1          -    Covered              
+        bin auto[2]                                       265          1          -    Covered              
+        bin auto[3]                                       269          1          -    Covered              
+    Coverpoint #in_tr.b__1#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       188          1          -    Covered              
+        bin auto[1]                                       252          1          -    Covered              
+        bin auto[2]                                       261          1          -    Covered              
+        bin auto[3]                                       299          1          -    Covered              
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[3],auto[3]>                          73          1          -    Covered              
+            bin <auto[2],auto[3]>                          80          1          -    Covered              
+            bin <auto[1],auto[3]>                          88          1          -    Covered              
+            bin <auto[0],auto[3]>                          58          1          -    Covered              
+            bin <auto[3],auto[2]>                          80          1          -    Covered              
+            bin <auto[2],auto[2]>                          60          1          -    Covered              
+            bin <auto[1],auto[2]>                          75          1          -    Covered              
+            bin <auto[0],auto[2]>                          46          1          -    Covered              
+            bin <auto[3],auto[1]>                          71          1          -    Covered              
+            bin <auto[2],auto[1]>                          76          1          -    Covered              
+            bin <auto[1],auto[1]>                          62          1          -    Covered              
+            bin <auto[0],auto[1]>                          43          1          -    Covered              
+            bin <auto[3],auto[0]>                          45          1          -    Covered              
+            bin <auto[2],auto[0]>                          49          1          -    Covered              
+            bin <auto[1],auto[0]>                          60          1          -    Covered              
+            bin <auto[0],auto[0]>                          34          1          -    Covered              
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      63        63         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /adder_package --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File adder_generator.svh
+    1                                                class adder_generator;
+    2                                                    mailbox #(adder_trans) stimulus_mbx  = new();
+    3                                                
+    4                                                    task run (int count);
+    5               1                       1000             repeat(count) begin
+    6               1                       1000                 adder_trans tr = new();
+    7                                                            Randome_Stimulus : assert(tr.randomize());
+    8               1                       1000                 stimulus_mbx.put(tr);
+
+  File adder_driver.svh
+    1                                                class adder_driver;
+    2                                                    virtual adder_if vif;
+    3               1                          1         mailbox #(adder_trans) stimulus_mbx = new();
+    4                                                
+    5                                                    function new (virtual adder_if vif);
+    6               1                          1             this.vif = vif;      
+    7                                                    endfunction
+    8                                                
+    9                                                    task run ();
+    10              1                          1             forever begin
+    11              1                       1001                 adder_trans tr = new();
+    12              1                       1001                 stimulus_mbx.get(tr);
+    13              1                       1000                 @(posedge vif.clk);
+    14              1                       1000                 vif.cb_driver.en_i <= 1'b1;
+    15              1                       1000                 vif.cb_driver.ina <= tr.a[1];
+    16              1                       1000                 vif.cb_driver.inb <= tr.b[1];
+    17              1                       1000                 @(posedge vif.clk);
+    18              1                       1000                 vif.cb_driver.ina <= tr.a[0];
+    19              1                       1000                 vif.cb_driver.inb <= tr.b[0];
+    20              1                       1000                 @(posedge vif.clk);
+    21              1                       1000                 vif.cb_driver.en_i <= 1'b0;
+    22              1                       1000                 wait(vif.cb_monitor.en_o == 1'b1);
+    23              1                       3000                 repeat(3) @(posedge vif.clk);
+    23              2                       3000     
+
+  File monitor_output.svh
+    1                                                class monitor_output;
+    2                                                    virtual adder_if vif;
+    3               1                          1         mailbox #(adder_trans) out_check_mbx = new();
+    4               1                          1         mailbox #(adder_trans) out_cov_mbx = new();
+    5                                                
+    6                                                    function new (virtual adder_if vif);
+    7               1                          1             this.vif = vif;
+    8                                                    endfunction
+    9                                                
+    10                                                   task run ();
+    11              1                          1             forever begin
+    12              1                       1001                 adder_trans tr = new();
+    13              1                       1001                 @(posedge vif.clk iff (vif.cb_monitor.en_o == 1'b1));
+    14              1                       1000                 tr.out[2] = vif.cb_monitor.out;
+    15              1                       1000                 @(posedge vif.clk);
+    16              1                       1000                 tr.out[1] = vif.cb_monitor.out;
+    17              1                       1000                 @(posedge vif.clk);
+    18              1                       1000                 tr.out[0] = vif.cb_monitor.out;
+    19              1                       1000                 out_check_mbx.put(tr);
+    20              1                       1000                 out_cov_mbx.put(tr);
+
+  File monitor_input.svh
+    1                                                class monitor_input;
+    2                                                    virtual adder_if vif;
+    3               1                          1         mailbox #(adder_trans) in_check_mbx = new();
+    4               1                          1         mailbox #(adder_trans) in_cov_mbx = new();
+    5                                                
+    6                                                    function new (virtual adder_if vif);
+    7               1                          1             this.vif = vif;
+    8                                                    endfunction
+    9                                                
+    10                                                   task run ();
+    11              1                          1             forever begin
+    12              1                       1001                 adder_trans tr = new();
+    13              1                       1001                 @(posedge vif.clk iff (vif.cb_monitor.en_i == 1'b1));
+    14              1                       1000                 tr.a[1] = vif.cb_monitor.ina;
+    15              1                       1000                 tr.b[1] = vif.cb_monitor.inb;
+    16              1                       1000                 @(posedge vif.clk);
+    17              1                       1000                 tr.a[0] = vif.cb_monitor.ina;
+    18              1                       1000                 tr.b[0] = vif.cb_monitor.inb;
+    19              1                       1000                 @(posedge vif.clk);
+    20              1                       1000                 in_check_mbx.put(tr);
+    21              1                       1000                 in_cov_mbx.put(tr);
+
+  File adder_checker.svh
+    1                                                class adder_checker;
+    2                                                    mailbox #(adder_trans) in_mbx = new();
+    3                                                    mailbox #(adder_trans) out_mbx = new();
+    4                                                
+    5                                                    int error_count, correct_count;
+    6                                                    bit done;
+    7                                                
+    8                                                    task run ();
+    9               1                          1             forever begin
+    10              1                       1001                 adder_trans in_tr = new();
+    11              1                       1001                 adder_trans out_tr = new();
+    12              1                       1001                 in_mbx.get(in_tr);
+    13              1                       1000                 out_mbx.get(out_tr);
+    14                                                           if (out_tr.out !== (in_tr.a + in_tr.b)) begin
+    15                                                               $display("FAIL: %0d + %0d = %0d (expected %0d)", in_tr.a, in_tr.a, out_tr.out, in_tr.a + in_tr.a);
+    16                                                               error_count++;
+    17                                                           end
+    18                                                           else begin
+    19                                                               $display("PASS: %0d + %0d = %0d", in_tr.a, in_tr.b, out_tr.out);
+    20              1                       1000                     correct_count++;
+    21                                                           end
+    22              1                          1                 if (correct_count == TESTS) done = 1;
+
+  File adder_collector.svh
+    1                                                class adder_collector;
+    2               1                          1         mailbox #(adder_trans) in_mbx = new();
+    3               1                          1         mailbox #(adder_trans) out_mbx = new();
+    4                                                    
+    5                                                    adder_trans in_tr;
+    6                                                    adder_trans out_tr;
+    7                                                
+    8                                                    covergroup adder_cv_grp;
+    9                                                        a_cp: coverpoint in_tr.a {bins a_0 = {0};
+    10                                                                           bins a_1 = {1};
+    11                                                                           bins a_2 = {2};
+    12                                                                           bins a_3 = {3};
+    13                                                                           bins a_trans[] = (0=>1),(1=>2),(2=>3);}
+    14                                               
+    15                                                       b_cp: coverpoint in_tr.b {bins b_0 = {0};
+    16                                                                           bins b_1 = {1};
+    17                                                                           bins b_2 = {2};
+    18                                                                           bins b_3 = {3};
+    19                                                                           bins b_trans[] = (0=>1),(1=>2),(2=>3);}
+    20                                               
+    21                                                       out_cp: coverpoint out_tr.out {ignore_bins max_out = {7};}
+    22                                                       axb: cross in_tr.a, in_tr.b;
+    23                                                   endgroup
+    24                                               
+    25                                                   task run ();
+    26              1                          1             forever begin
+    27              1                       1001                 in_tr = new();
+    28              1                       1001                 out_tr = new();
+    29              1                       1001                 in_mbx.get(in_tr);
+    30              1                       1000                 out_mbx.get(out_tr);
+    31              1                       1000                 adder_cv_grp.sample();
+    32                                                       end
+    33                                                   endtask
+    34                                               
+    35                                                   function new();
+    36              1                          1             adder_cv_grp = new();
+
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /adder_package/adder_collector/adder_cv_grp     100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #in_tr.a__0#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint #in_tr.b__1#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/adder_package::adder_collector::adder_cv_grp  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    45         45          -                      
+    missing/total bins:                                     0         45          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint a_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin a_0                                           181          1          -    Covered              
+        bin a_1                                           285          1          -    Covered              
+        bin a_2                                           265          1          -    Covered              
+        bin a_3                                           269          1          -    Covered              
+        bin a_trans[0=>1]                                  45          1          -    Covered              
+        bin a_trans[1=>2]                                  73          1          -    Covered              
+        bin a_trans[2=>3]                                  63          1          -    Covered              
+    Coverpoint b_cp                                   100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin b_0                                           188          1          -    Covered              
+        bin b_1                                           252          1          -    Covered              
+        bin b_2                                           261          1          -    Covered              
+        bin b_3                                           299          1          -    Covered              
+        bin b_trans[0=>1]                                  49          1          -    Covered              
+        bin b_trans[1=>2]                                  59          1          -    Covered              
+        bin b_trans[2=>3]                                  74          1          -    Covered              
+    Coverpoint out_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        ignore_bin max_out                                  0                     -    ZERO                 
+        bin auto[0]                                        34          1          -    Covered              
+        bin auto[1]                                       103          1          -    Covered              
+        bin auto[2]                                       157          1          -    Covered              
+        bin auto[3]                                       254          1          -    Covered              
+        bin auto[4]                                       219          1          -    Covered              
+        bin auto[5]                                       160          1          -    Covered              
+        bin auto[6]                                        73          1          -    Covered              
+    Coverpoint #in_tr.a__0#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       181          1          -    Covered              
+        bin auto[1]                                       285          1          -    Covered              
+        bin auto[2]                                       265          1          -    Covered              
+        bin auto[3]                                       269          1          -    Covered              
+    Coverpoint #in_tr.b__1#                           100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       188          1          -    Covered              
+        bin auto[1]                                       252          1          -    Covered              
+        bin auto[2]                                       261          1          -    Covered              
+        bin auto[3]                                       299          1          -    Covered              
+    Cross axb                                         100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <auto[3],auto[3]>                          73          1          -    Covered              
+            bin <auto[2],auto[3]>                          80          1          -    Covered              
+            bin <auto[1],auto[3]>                          88          1          -    Covered              
+            bin <auto[0],auto[3]>                          58          1          -    Covered              
+            bin <auto[3],auto[2]>                          80          1          -    Covered              
+            bin <auto[2],auto[2]>                          60          1          -    Covered              
+            bin <auto[1],auto[2]>                          75          1          -    Covered              
+            bin <auto[0],auto[2]>                          46          1          -    Covered              
+            bin <auto[3],auto[1]>                          71          1          -    Covered              
+            bin <auto[2],auto[1]>                          76          1          -    Covered              
+            bin <auto[1],auto[1]>                          62          1          -    Covered              
+            bin <auto[0],auto[1]>                          43          1          -    Covered              
+            bin <auto[3],auto[0]>                          45          1          -    Covered              
+            bin <auto[2],auto[0]>                          49          1          -    Covered              
+            bin <auto[1],auto[0]>                          60          1          -    Covered              
+            bin <auto[0],auto[0]>                          34          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/simpleadder_oop_tb/DUT/sva_inst/Adder_Out_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(12) 253 Covered   
+/simpleadder_oop_tb/DUT/sva_inst/Adder_En_O_Cover 
+                                         adder_sva Verilog  SVA  adder_sva.sv(15)1000 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 2
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/simpleadder_oop_tb/DUT/sva_inst/Adder_Out_Assertion
+                     adder_sva.sv(11)                   0          1
+/simpleadder_oop_tb/DUT/sva_inst/Adder_En_O_Assertion
+                     adder_sva.sv(14)                   0          1
+/adder_package/adder_generator/run/#ublk#30728149#5/Randome_Stimulus
+                     adder_generator.svh(7)             0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

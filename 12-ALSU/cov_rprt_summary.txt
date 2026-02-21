@@ -1,0 +1,18 @@
+Recursive Coverage Report Summary Data by DU
+
+=================================================================================
+=== Design Unit: work.ALSU
+=================================================================================
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Assertions                      19        19         0   100.00%
+    Branches                        32        31         1    96.87%
+    Conditions                       6         6         0   100.00%
+    Directives                      19        19         0   100.00%
+    Expressions                      8         8         0   100.00%
+    Statements                      49        49         0   100.00%
+    Toggles                        104        40        64    38.46%
+
+
+Total Coverage By Design Unit (filtered view): 90.76%
+
