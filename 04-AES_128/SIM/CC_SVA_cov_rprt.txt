@@ -1,0 +1,102 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\top#DUT /SVA_INST
+=== Design Unit: work.AES_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       1         1         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top#DUT /SVA_INST/#ublk#94988929#9/immed__18
+                     ../UVM/AES_sva.sv(18)              0          1
+
+Directive Coverage:
+    Directives                       1         1         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top#DUT /SVA_INST/#ublk#94988929#9/i_cover__19 
+                                         AES_sva Verilog  SVA  ../UVM/AES_sva.sv(19)
+                                                                               100 Covered   
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       8         8         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /SVA_INST --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../UVM/AES_sva.sv
+    1                                                module AES_sva #(parameter N=128,parameter Nr=10,parameter Nk=4) (in,key,out);
+    2                                                input [127:0] in;
+    3                                                input [N-1:0] key;
+    4                                                input [127:0] out;
+    5                                                
+    6                                                logic [127:0] out_exp;
+    7                                                int output_file, key_file;
+    8                                                
+    9               1                       1190     always @(*) begin
+    10              1                       1190         key_file = $fopen("./key_sva.txt","w");
+    11              1                       1190         $fdisplay(key_file,"%h \n%h",in,key);
+    12              1                       1190         $fclose(key_file);
+    13              1                       1190         $system($sformatf("python ../SIM/Golden_model_sva.py"));
+    14              1                       1190         output_file = $fopen("./output_sva.txt","r");
+    15              1                       1190         $fscanf(output_file,"%h",out_exp);
+    16              1                       1190         $fclose(output_file);
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                       1152      1024       128    88.88%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /SVA_INST --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                         in[0-127]           1           1      100.00 
+                                        key[0-127]           1           1      100.00 
+                                    key_file[31-0]           0           0        0.00 
+                                        out[0-127]           1           1      100.00 
+                                    out_exp[127-0]           1           1      100.00 
+                                 output_file[31-0]           0           0        0.00 
+
+Total Node Count     =        576 
+Toggled Node Count   =        512 
+Untoggled Node Count =         64 
+
+Toggle Coverage      =      88.88% (1024 of 1152 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top#DUT /SVA_INST/#ublk#94988929#9/i_cover__19 
+                                         AES_sva Verilog  SVA  ../UVM/AES_sva.sv(19)
+                                                                               100 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 1
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top#DUT /SVA_INST/#ublk#94988929#9/immed__18
+                     ../UVM/AES_sva.sv(18)              0          1
+
+Total Coverage By Instance (filtered view): 97.22%
+
