@@ -1,1 +1,0 @@
-bind FIFO FIFO_sva FIFO_Assertions(.*) ;
