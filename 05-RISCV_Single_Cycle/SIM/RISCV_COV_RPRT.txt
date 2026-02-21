@@ -1,0 +1,18 @@
+Recursive Coverage Report Summary Data by DU
+
+=================================================================================
+=== Design Unit: work.RISCV
+=================================================================================
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Assertions                      19        19         0   100.00%
+    Branches                        74        60        14    81.08%
+    Conditions                       2         1         1    50.00%
+    Directives                      12        11         1    91.66%
+    Expressions                      7         7         0   100.00%
+    Statements                      70        60        10    85.71%
+    Toggles                       2374      1036      1338    43.63%
+
+
+Total Coverage By Design Unit (filtered view): 78.87%
+
