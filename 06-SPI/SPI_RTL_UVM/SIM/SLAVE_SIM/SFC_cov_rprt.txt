@@ -1,0 +1,234 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /slave_coverage_pkg
+=== Design Unit: work.slave_coverage_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          8        na        na        na
+            Covergroup Bins         26        26         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /slave_coverage_pkg/slave_coverage/cvr_grp      100.00%        100          -    Covered              
+    covered/total bins:                                    26         26          -                      
+    missing/total bins:                                     0         26          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint SS_n_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint MOSI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint MISO_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rstn_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross ss_n_op_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/slave_coverage_pkg::slave_coverage::cvr_grp  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    26         26          -                      
+    missing/total bins:                                     0         26          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin wr_addr                                      4150          1          -    Covered              
+        bin wr_data                                      3783          1          -    Covered              
+        bin rd_addr                                      1201          1          -    Covered              
+        bin rd_data                                       867          1          -    Covered              
+        bin write_trans                                   152          1          -    Covered              
+        bin read_trans                                     43          1          -    Covered              
+    Coverpoint SS_n_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ss_n_trans                                    450          1          -    Covered              
+        bin ss_n_trans_read_data                           95          1          -    Covered              
+        bin ss_n_start_trans                              711          1          -    Covered              
+        bin ss_n_end_trans                                711          1          -    Covered              
+    Coverpoint MOSI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin wr_addr_trans                                1518          1          -    Covered              
+        bin wr_data_trans                                1342          1          -    Covered              
+        bin rd_addr_trans                                1170          1          -    Covered              
+        bin rd_data_trans                                1038          1          -    Covered              
+    Coverpoint MISO_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                      7974          1          -    Covered              
+        bin auto[1]                                      1423          1          -    Covered              
+    Coverpoint rstn_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       193          1          -    Covered              
+        bin auto[1]                                      9808          1          -    Covered              
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                      8699          1          -    Covered              
+        bin auto[1]                                      1302          1          -    Covered              
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                      6943          1          -    Covered              
+        bin auto[1]                                      3058          1          -    Covered              
+    Cross ss_n_op_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <ss_n_start_trans,rd_data_trans>           25          1          -    Covered              
+            bin <ss_n_start_trans,wr_data_trans>           28          1          -    Covered              
+            bin <ss_n_start_trans,rd_addr_trans>          160          1          -    Covered              
+            bin <ss_n_start_trans,wr_addr_trans>          148          1          -    Covered              
+        Illegal and Ignore Bins:
+            ignore_bin bin_3                              367                     -    Occurred             
+            ignore_bin bin_2                               46                     -    Occurred             
+            ignore_bin bin_1                              234                     -    Occurred             
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /slave_coverage_pkg/slave_coverage/cvr_grp      100.00%        100          -    Covered              
+    covered/total bins:                                    26         26          -                      
+    missing/total bins:                                     0         26          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint SS_n_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint MOSI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint MISO_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rstn_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross ss_n_op_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+ Covergroup instance \/slave_coverage_pkg::slave_coverage::cvr_grp  
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    26         26          -                      
+    missing/total bins:                                     0         26          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin wr_addr                                      4150          1          -    Covered              
+        bin wr_data                                      3783          1          -    Covered              
+        bin rd_addr                                      1201          1          -    Covered              
+        bin rd_data                                       867          1          -    Covered              
+        bin write_trans                                   152          1          -    Covered              
+        bin read_trans                                     43          1          -    Covered              
+    Coverpoint SS_n_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ss_n_trans                                    450          1          -    Covered              
+        bin ss_n_trans_read_data                           95          1          -    Covered              
+        bin ss_n_start_trans                              711          1          -    Covered              
+        bin ss_n_end_trans                                711          1          -    Covered              
+    Coverpoint MOSI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin wr_addr_trans                                1518          1          -    Covered              
+        bin wr_data_trans                                1342          1          -    Covered              
+        bin rd_addr_trans                                1170          1          -    Covered              
+        bin rd_data_trans                                1038          1          -    Covered              
+    Coverpoint MISO_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                      7974          1          -    Covered              
+        bin auto[1]                                      1423          1          -    Covered              
+    Coverpoint rstn_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                       193          1          -    Covered              
+        bin auto[1]                                      9808          1          -    Covered              
+    Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                      8699          1          -    Covered              
+        bin auto[1]                                      1302          1          -    Covered              
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[0]                                      6943          1          -    Covered              
+        bin auto[1]                                      3058          1          -    Covered              
+    Cross ss_n_op_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <ss_n_start_trans,rd_data_trans>           25          1          -    Covered              
+            bin <ss_n_start_trans,wr_data_trans>           28          1          -    Covered              
+            bin <ss_n_start_trans,rd_addr_trans>          160          1          -    Covered              
+            bin <ss_n_start_trans,wr_addr_trans>          148          1          -    Covered              
+        Illegal and Ignore Bins:
+            ignore_bin bin_3                              367                     -    Occurred             
+            ignore_bin bin_2                               46                     -    Occurred             
+            ignore_bin bin_1                              234                     -    Occurred             
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 100.00%
+
