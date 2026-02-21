@@ -1,0 +1,1006 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\top#DUT /WR_B2G
+=== Design Unit: work.Binary2Gray
+=================================================================================
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      6         6         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT /WR_B2G --
+
+  File ../CDC_CCT/Binary2Gray.v
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=0) (i_data_binary[1] ^ i_data_binary[0])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+    i_data_binary[1]         Y
+    i_data_binary[0]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           1  i_data_binary[1]_0    -                                  
+ Row   2:           0           1  i_data_binary[1]_1    -                                  
+ Row   3:           1           0  i_data_binary[0]_0    -                                  
+ Row   4:           0           1  i_data_binary[0]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=1) (i_data_binary[2] ^ i_data_binary[1])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+    i_data_binary[2]         Y
+    i_data_binary[1]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           1  i_data_binary[2]_0    -                                  
+ Row   2:           0           1  i_data_binary[2]_1    -                                  
+ Row   3:           1           0  i_data_binary[1]_0    -                                  
+ Row   4:           0           1  i_data_binary[1]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=2) (i_data_binary[3] ^ i_data_binary[2])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+    i_data_binary[3]         Y
+    i_data_binary[2]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           1  i_data_binary[3]_0    -                                  
+ Row   2:           0           1  i_data_binary[3]_1    -                                  
+ Row   3:           1           0  i_data_binary[2]_0    -                                  
+ Row   4:           0           1  i_data_binary[2]_1    -                                  
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       3         3         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /WR_B2G --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Binary2Gray.v
+    1                                                module Binary2Gray #(
+    2                                                    parameter WIDTH = 4
+    3                                                ) (
+    4                                                    input       wire        [WIDTH-1:0]         i_data_binary,
+    5                                                    output      wire        [WIDTH-1:0]         o_data_gray
+    6                                                );
+    7                                                
+    8                                                genvar i;
+    9                                                generate
+    10                                                   for (i = WIDTH-2 ; i >= 0 ; i = i - 1) begin
+    11       1 (GI=0)                       1140             assign o_data_gray[i] = i_data_binary[i+1] ^ i_data_binary[i];
+    11       1 (GI=1)                        576     
+    11       1 (GI=2)                        292     
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /WR_B2G --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                i_data_binary[0-3]           1           1      100.00 
+                                  o_data_gray[0-3]           1           1      100.00 
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /\top#DUT /WR_DFF_SYNCH
+=== Design Unit: work.Double_FF_Sync
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top#DUT /WR_DFF_SYNCH
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Double_FF_Sync.v
+------------------------------------IF Branch------------------------------------
+    13                                      2746     Count coming in to IF
+    13              1                         94         if (!i_rst_n) begin
+    17              1                       2652         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       5         5         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /WR_DFF_SYNCH --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Double_FF_Sync.v
+    1                                                module Double_FF_Sync #(
+    2                                                    parameter WIDTH = 4
+    3                                                ) (
+    4                                                    input       wire        [WIDTH-1:0]         i_data,
+    5                                                    input       wire                            i_clk,
+    6                                                    input       wire                            i_rst_n,
+    7                                                    output      wire        [WIDTH-1:0]         o_data
+    8                                                );
+    9                                                
+    10                                               reg [WIDTH-1:0] data_FF1, data_FF2;
+    11                                               
+    12              1                       2746     always @(posedge i_clk or negedge i_rst_n) begin
+    13                                                   if (!i_rst_n) begin
+    14              1                         94             data_FF1 <= 0;
+    15              1                         94             data_FF2 <= 0;
+    16                                                   end
+    17                                                   else begin
+    18              1                       2652             data_FF1 <= i_data;
+    19              1                       2652             data_FF2 <= data_FF1;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         36        36         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /WR_DFF_SYNCH --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                     data_FF1[3-0]           1           1      100.00 
+                                     data_FF2[3-0]           1           1      100.00 
+                                             i_clk           1           1      100.00 
+                                       i_data[0-3]           1           1      100.00 
+                                           i_rst_n           1           1      100.00 
+                                       o_data[0-3]           1           1      100.00 
+
+Total Node Count     =         18 
+Toggled Node Count   =         18 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (36 of 36 bins)
+
+=================================================================================
+=== Instance: /\top#DUT /WR_G2B
+=== Design Unit: work.Gray2Binary
+=================================================================================
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      6         6         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT /WR_G2B --
+
+  File ../CDC_CCT/Gray2Binary.v
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=0) (i_data_gray[0] ^ o_data_binary[1])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+      i_data_gray[0]         Y
+    o_data_binary[1]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           0  i_data_gray[0]_0      -                                  
+ Row   2:           0           1  i_data_gray[0]_1      -                                  
+ Row   3:           1           1  o_data_binary[1]_0    -                                  
+ Row   4:           1           0  o_data_binary[1]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=1) (i_data_gray[1] ^ o_data_binary[2])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+      i_data_gray[1]         Y
+    o_data_binary[2]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           0  i_data_gray[1]_0      -                                  
+ Row   2:           0           1  i_data_gray[1]_1      -                                  
+ Row   3:           1           1  o_data_binary[2]_0    -                                  
+ Row   4:           1           0  o_data_binary[2]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=2) (i_data_gray[2] ^ o_data_binary[3])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+      i_data_gray[2]         Y
+    o_data_binary[3]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           0  i_data_gray[2]_0      -                                  
+ Row   2:           0           1  i_data_gray[2]_1      -                                  
+ Row   3:           1           1  o_data_binary[3]_0    -                                  
+ Row   4:           1           0  o_data_binary[3]_1    -                                  
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       3         3         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /WR_G2B --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Gray2Binary.v
+    1                                                module Gray2Binary #(
+    2                                                    parameter WIDTH = 4
+    3                                                ) (
+    4                                                    input       wire        [WIDTH-1:0]         i_data_gray,
+    5                                                    output      wire        [WIDTH-1:0]         o_data_binary
+    6                                                );
+    7                                                
+    8                                                genvar i;
+    9                                                generate
+    10                                                   for (i = WIDTH-2 ; i >= 0 ; i = i - 1) begin
+    11       1 (GI=0)                       1146             assign o_data_binary[i] = i_data_gray[i] ^ o_data_binary[i+1];
+    11       1 (GI=1)                        569     
+    11       1 (GI=2)                        286     
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /WR_G2B --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                  i_data_gray[0-3]           1           1      100.00 
+                                o_data_binary[0-3]           1           1      100.00 
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /\top#DUT /RD_B2G
+=== Design Unit: work.Binary2Gray
+=================================================================================
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      6         6         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT /RD_B2G --
+
+  File ../CDC_CCT/Binary2Gray.v
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=0) (i_data_binary[1] ^ i_data_binary[0])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+    i_data_binary[1]         Y
+    i_data_binary[0]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           1  i_data_binary[1]_0    -                                  
+ Row   2:           0           1  i_data_binary[1]_1    -                                  
+ Row   3:           1           0  i_data_binary[0]_0    -                                  
+ Row   4:           0           1  i_data_binary[0]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=1) (i_data_binary[2] ^ i_data_binary[1])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+    i_data_binary[2]         Y
+    i_data_binary[1]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           1  i_data_binary[2]_0    -                                  
+ Row   2:           0           1  i_data_binary[2]_1    -                                  
+ Row   3:           1           0  i_data_binary[1]_0    -                                  
+ Row   4:           0           1  i_data_binary[1]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=2) (i_data_binary[3] ^ i_data_binary[2])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+    i_data_binary[3]         Y
+    i_data_binary[2]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           1  i_data_binary[3]_0    -                                  
+ Row   2:           0           1  i_data_binary[3]_1    -                                  
+ Row   3:           1           0  i_data_binary[2]_0    -                                  
+ Row   4:           0           1  i_data_binary[2]_1    -                                  
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       3         3         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /RD_B2G --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Binary2Gray.v
+    1                                                module Binary2Gray #(
+    2                                                    parameter WIDTH = 4
+    3                                                ) (
+    4                                                    input       wire        [WIDTH-1:0]         i_data_binary,
+    5                                                    output      wire        [WIDTH-1:0]         o_data_gray
+    6                                                );
+    7                                                
+    8                                                genvar i;
+    9                                                generate
+    10                                                   for (i = WIDTH-2 ; i >= 0 ; i = i - 1) begin
+    11       1 (GI=0)                        872             assign o_data_gray[i] = i_data_binary[i+1] ^ i_data_binary[i];
+    11       1 (GI=1)                        441     
+    11       1 (GI=2)                        223     
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /RD_B2G --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                i_data_binary[0-3]           1           1      100.00 
+                                  o_data_gray[0-3]           1           1      100.00 
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /\top#DUT /RD_DFF_SYNCH
+=== Design Unit: work.Double_FF_Sync
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top#DUT /RD_DFF_SYNCH
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Double_FF_Sync.v
+------------------------------------IF Branch------------------------------------
+    13                                      1492     Count coming in to IF
+    13              1                         92         if (!i_rst_n) begin
+    17              1                       1400         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       5         5         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /RD_DFF_SYNCH --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Double_FF_Sync.v
+    1                                                module Double_FF_Sync #(
+    2                                                    parameter WIDTH = 4
+    3                                                ) (
+    4                                                    input       wire        [WIDTH-1:0]         i_data,
+    5                                                    input       wire                            i_clk,
+    6                                                    input       wire                            i_rst_n,
+    7                                                    output      wire        [WIDTH-1:0]         o_data
+    8                                                );
+    9                                                
+    10                                               reg [WIDTH-1:0] data_FF1, data_FF2;
+    11                                               
+    12              1                       1492     always @(posedge i_clk or negedge i_rst_n) begin
+    13                                                   if (!i_rst_n) begin
+    14              1                         92             data_FF1 <= 0;
+    15              1                         92             data_FF2 <= 0;
+    16                                                   end
+    17                                                   else begin
+    18              1                       1400             data_FF1 <= i_data;
+    19              1                       1400             data_FF2 <= data_FF1;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         36        36         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /RD_DFF_SYNCH --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                     data_FF1[3-0]           1           1      100.00 
+                                     data_FF2[3-0]           1           1      100.00 
+                                             i_clk           1           1      100.00 
+                                       i_data[0-3]           1           1      100.00 
+                                           i_rst_n           1           1      100.00 
+                                       o_data[0-3]           1           1      100.00 
+
+Total Node Count     =         18 
+Toggled Node Count   =         18 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (36 of 36 bins)
+
+=================================================================================
+=== Instance: /\top#DUT /RD_G2B
+=== Design Unit: work.Gray2Binary
+=================================================================================
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      6         6         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT /RD_G2B --
+
+  File ../CDC_CCT/Gray2Binary.v
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=0) (i_data_gray[0] ^ o_data_binary[1])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+      i_data_gray[0]         Y
+    o_data_binary[1]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           0  i_data_gray[0]_0      -                                  
+ Row   2:           0           1  i_data_gray[0]_1      -                                  
+ Row   3:           1           1  o_data_binary[1]_0    -                                  
+ Row   4:           0           1  o_data_binary[1]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=1) (i_data_gray[1] ^ o_data_binary[2])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+      i_data_gray[1]         Y
+    o_data_binary[2]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           0  i_data_gray[1]_0      -                                  
+ Row   2:           0           1  i_data_gray[1]_1      -                                  
+ Row   3:           1           1  o_data_binary[2]_0    -                                  
+ Row   4:           1           0  o_data_binary[2]_1    -                                  
+
+-----------Focused Expression View (Bimodal)------------
+Line       11 Item    1 (GI=2) (i_data_gray[2] ^ o_data_binary[3])
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage                  Hint
+         -----------  --------  --------------------------------------  --------------
+      i_data_gray[2]         Y
+    o_data_binary[3]         Y
+
+    Rows:   Hits(->0)   Hits(->1)  FEC Target            Non-masking condition(s)           
+
+---------  ----------  ----------  --------------------  -------------------------          
+ Row   1:           1           0  i_data_gray[2]_0      -                                  
+ Row   2:           0           1  i_data_gray[2]_1      -                                  
+ Row   3:           1           1  o_data_binary[3]_0    -                                  
+ Row   4:           1           0  o_data_binary[3]_1    -                                  
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       3         3         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /RD_G2B --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../CDC_CCT/Gray2Binary.v
+    1                                                module Gray2Binary #(
+    2                                                    parameter WIDTH = 4
+    3                                                ) (
+    4                                                    input       wire        [WIDTH-1:0]         i_data_gray,
+    5                                                    output      wire        [WIDTH-1:0]         o_data_binary
+    6                                                );
+    7                                                
+    8                                                genvar i;
+    9                                                generate
+    10                                                   for (i = WIDTH-2 ; i >= 0 ; i = i - 1) begin
+    11       1 (GI=0)                        882             assign o_data_binary[i] = i_data_gray[i] ^ o_data_binary[i+1];
+    11       1 (GI=1)                        439     
+    11       1 (GI=2)                        216     
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         16        16         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /RD_G2B --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                  i_data_gray[0-3]           1           1      100.00 
+                                o_data_binary[0-3]           1           1      100.00 
+
+Total Node Count     =          8 
+Toggled Node Count   =          8 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (16 of 16 bins)
+
+=================================================================================
+=== Instance: /\top#DUT /sva_inst
+=== Design Unit: work.ASYNCH_FIFO_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       5         5         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top#DUT /sva_inst/RST_ASSERTION
+                     ../UVM/ASYNCH_FIFO_sva.sv(21)
+                                                        0          1
+/\top#DUT /sva_inst/full_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(51)
+                                                        0          1
+/\top#DUT /sva_inst/empty_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(54)
+                                                        0          1
+/\top#DUT /sva_inst/wr_ptr_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(57)
+                                                        0          1
+/\top#DUT /sva_inst/rd_ptr_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(60)
+                                                        0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top#DUT /sva_inst
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../UVM/ASYNCH_FIFO_sva.sv
+------------------------------------IF Branch------------------------------------
+    20                                      2310     Count coming in to IF
+    20              1                         94     	if (!i_rst_n) begin
+                                            2216     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+
+Directive Coverage:
+    Directives                       5         5         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top#DUT /sva_inst/RST_COVER            ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(22)
+                                                                                47 Covered   
+/\top#DUT /sva_inst/full_cond_cover      ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(52)
+                                                                              5528 Covered   
+/\top#DUT /sva_inst/empty_cond_cover     ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(55)
+                                                                              2723 Covered   
+/\top#DUT /sva_inst/wr_ptr_cond_cover    ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(58)
+                                                                              1079 Covered   
+/\top#DUT /sva_inst/rd_ptr_cond_cover    ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(61)
+                                                                               821 Covered   
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       1         1         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /sva_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../UVM/ASYNCH_FIFO_sva.sv
+    1                                                module ASYNCH_FIFO_sva #(
+    2                                                	parameter  FIFO_WIDTH = 4,
+    3                                                	parameter  FIFO_DEPTH = 8,
+    4                                                	localparam ADDR_WIDTH = $clog2(FIFO_DEPTH)
+    5                                                ) (       
+    6                                                    input       logic                                i_rst_n,
+    7                                                    input       logic                                i_wclk,
+    8                                                    input       logic                                i_wen,
+    9                                                    input       logic        [FIFO_WIDTH-1:0]        i_wdata,
+    10                                                   input       logic                                i_rclk,
+    11                                                   input       logic                                i_ren,
+    12                                                   input       logic                                o_full,
+    13                                                   input       logic                                o_empty,
+    14                                                   input       logic        [FIFO_WIDTH-1:0]        o_rdata,
+    15                                               	input		logic	     [ADDR_WIDTH:0]		     wr_ptr,
+    16                                               	input		logic		 [ADDR_WIDTH:0]		     rd_ptr
+    17                                               );
+    18                                               
+    19              1                       2310     always_comb begin
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         46        46         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /sva_inst --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                            i_rclk           1           1      100.00 
+                                             i_ren           1           1      100.00 
+                                           i_rst_n           1           1      100.00 
+                                            i_wclk           1           1      100.00 
+                                      i_wdata[0-3]           1           1      100.00 
+                                             i_wen           1           1      100.00 
+                                           o_empty           1           1      100.00 
+                                            o_full           1           1      100.00 
+                                      o_rdata[0-3]           1           1      100.00 
+                                       rd_ptr[0-3]           1           1      100.00 
+                                       wr_ptr[0-3]           1           1      100.00 
+
+Total Node Count     =         23 
+Toggled Node Count   =         23 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (46 of 46 bins)
+
+=================================================================================
+=== Instance: /\top#DUT 
+=== Design Unit: work.ASYNCH_FIFO
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         8         8         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top#DUT 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL/ASYNCH_FIFO.v
+------------------------------------IF Branch------------------------------------
+    34                                      6968     Count coming in to IF
+    34              1                         93         if (!i_rst_n) begin
+    37              1                       6875         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    38                                      6875     Count coming in to IF
+    38              1                       1102             if (i_wen && !o_full) begin
+                                            5773     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    46                                      2301     Count coming in to IF
+    46              1                         95         if (!i_rst_n) begin
+    50              1                       2206         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    51                                      2206     Count coming in to IF
+    51              1                        836             if (i_ren && !o_empty) begin
+                                            1370     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       4         4         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /\top#DUT  --
+
+  File ../RTL/ASYNCH_FIFO.v
+----------------Focused Condition View-------------------
+Line       38 Item    1  (i_wen && ~o_full)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       i_wen         Y
+      o_full         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  i_wen_0               -                             
+  Row   2:          1  i_wen_1               ~o_full                       
+  Row   3:          1  o_full_0              i_wen                         
+  Row   4:          1  o_full_1              i_wen                         
+
+----------------Focused Condition View-------------------
+Line       51 Item    1  (i_ren && ~o_empty)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+       i_ren         Y
+     o_empty         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  i_ren_0               -                             
+  Row   2:          1  i_ren_1               ~o_empty                      
+  Row   3:          1  o_empty_0             i_ren                         
+  Row   4:          1  o_empty_1             i_ren                         
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      3         3         0   100.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT  --
+
+  File ../RTL/ASYNCH_FIFO.v
+----------------Focused Expression View-----------------
+Line       58 Item    1  ((wr_ptr[3] != rd_ptr_G2B[3]) && (wr_ptr[2:0] == rd_ptr_G2B[2:0]))
+Expression totals: 2 of 2 input terms covered = 100.00%
+
+                        Input Term   Covered  Reason for no coverage   Hint
+                       -----------  --------  -----------------------  --------------
+      (wr_ptr[3] != rd_ptr_G2B[3])         Y
+  (wr_ptr[2:0] == rd_ptr_G2B[2:0])         Y
+
+     Rows:       Hits  FEC Target                          Non-masking condition(s)      
+ ---------  ---------  --------------------                -------------------------     
+  Row   1:          1  (wr_ptr[3] != rd_ptr_G2B[3])_0      -                             
+  Row   2:          1  (wr_ptr[3] != rd_ptr_G2B[3])_1      (wr_ptr[2:0] == rd_ptr_G2B[2:0])
+  Row   3:          1  (wr_ptr[2:0] == rd_ptr_G2B[2:0])_0  (wr_ptr[3] != rd_ptr_G2B[3])  
+  Row   4:          1  (wr_ptr[2:0] == rd_ptr_G2B[2:0])_1  (wr_ptr[3] != rd_ptr_G2B[3])  
+
+----------------Focused Expression View-----------------
+Line       59 Item    1  (rd_ptr == wr_ptr_G2B)
+Expression totals: 1 of 1 input term covered = 100.00%
+
+              Input Term   Covered  Reason for no coverage   Hint
+             -----------  --------  -----------------------  --------------
+  (rd_ptr == wr_ptr_G2B)         Y
+
+     Rows:       Hits  FEC Target                Non-masking condition(s)      
+ ---------  ---------  --------------------      -------------------------     
+  Row   1:          1  (rd_ptr == wr_ptr_G2B)_0  -                             
+  Row   2:          1  (rd_ptr == wr_ptr_G2B)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      11        11         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL/ASYNCH_FIFO.v
+    1                                                module ASYNCH_FIFO #(
+    2                                                    parameter  FIFO_DEPTH = 8,
+    3                                                    parameter  FIFO_WIDTH = 4,
+    4                                                    localparam ADDR_WIDTH = $clog2(FIFO_DEPTH)
+    5                                                ) (
+    6                                                    input       wire                                i_rst_n,
+    7                                                    input       wire                                i_wclk,
+    8                                                    input       wire                                i_wen,
+    9                                                    input       wire        [FIFO_WIDTH-1:0]        i_wdata,
+    10                                                   input       wire                                i_rclk,
+    11                                                   input       wire                                i_ren,
+    12                                                   output      wire                                o_full,
+    13                                                   output      wire                                o_empty,
+    14                                                   output      reg         [FIFO_WIDTH-1:0]        o_rdata
+    15                                               );
+    16                                               
+    17                                               reg [FIFO_WIDTH-1:0] MEM [FIFO_DEPTH-1:0];
+    18                                               
+    19                                               reg  [ADDR_WIDTH:0] wr_ptr; 
+    20                                               wire [ADDR_WIDTH:0] wr_ptr_B2G, wr_ptr_synch, wr_ptr_G2B;
+    21                                               
+    22                                               reg  [ADDR_WIDTH:0] rd_ptr;
+    23                                               wire [ADDR_WIDTH:0] rd_ptr_B2G, rd_ptr_synch, rd_ptr_G2B;
+    24                                               
+    25                                               Binary2Gray #(.WIDTH(ADDR_WIDTH + 1)) WR_B2G (.i_data_binary(wr_ptr),.o_data_gray(wr_ptr_B2G));
+    26                                               Double_FF_Sync #(.WIDTH(ADDR_WIDTH + 1)) WR_DFF_SYNCH (.i_clk(i_rclk),.i_rst_n(i_rst_n),.i_data(wr_ptr_B2G),.o_data(wr_ptr_synch));
+    27                                               Gray2Binary #(.WIDTH(ADDR_WIDTH + 1)) WR_G2B (.i_data_gray(wr_ptr_synch),.o_data_binary(wr_ptr_G2B));
+    28                                               
+    29                                               Binary2Gray #(.WIDTH(ADDR_WIDTH + 1)) RD_B2G (.i_data_binary(rd_ptr),.o_data_gray(rd_ptr_B2G));
+    30                                               Double_FF_Sync #(.WIDTH(ADDR_WIDTH + 1)) RD_DFF_SYNCH (.i_clk(i_wclk),.i_rst_n(i_rst_n),.i_data(rd_ptr_B2G),.o_data(rd_ptr_synch));
+    31                                               Gray2Binary #(.WIDTH(ADDR_WIDTH + 1)) RD_G2B (.i_data_gray(rd_ptr_synch),.o_data_binary(rd_ptr_G2B));
+    32                                               
+    33              1                       6968     always @(posedge i_wclk or negedge i_rst_n) begin
+    34                                                   if (!i_rst_n) begin
+    35              1                         93             wr_ptr <= 0;
+    36                                                   end
+    37                                                   else begin
+    38                                                       if (i_wen && !o_full) begin
+    39              1                       1102                 MEM[wr_ptr[ADDR_WIDTH-1:0]] <= i_wdata;
+    40              1                       1102                 wr_ptr <= wr_ptr + 1'b1;
+    41                                                       end
+    42                                                   end
+    43                                               end
+    44                                               
+    45              1                       2301     always @(posedge i_rclk or negedge i_rst_n) begin
+    46                                                   if (!i_rst_n) begin
+    47              1                         95             rd_ptr <= 0;
+    48              1                         95             o_rdata <= 0;
+    49                                                   end
+    50                                                   else begin
+    51                                                       if (i_ren && !o_empty) begin
+    52              1                        836                 o_rdata <= MEM[rd_ptr[ADDR_WIDTH-1:0]];
+    53              1                        836                 rd_ptr <= rd_ptr + 1'b1;
+    54                                                       end
+    55                                                   end
+    56                                               end
+    57                                               
+    58              1                       2620     assign o_full = ((wr_ptr[ADDR_WIDTH] != rd_ptr_G2B[ADDR_WIDTH]) && (wr_ptr[ADDR_WIDTH-1:0] == rd_ptr_G2B[ADDR_WIDTH-1:0]))? 1'b1 : 1'b0;
+    59              1                       2963     assign o_empty = (rd_ptr == wr_ptr_G2B)? 1'b1 : 1'b0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         94        94         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT  --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                            i_rclk           1           1      100.00 
+                                             i_ren           1           1      100.00 
+                                           i_rst_n           1           1      100.00 
+                                            i_wclk           1           1      100.00 
+                                      i_wdata[0-3]           1           1      100.00 
+                                             i_wen           1           1      100.00 
+                                           o_empty           1           1      100.00 
+                                            o_full           1           1      100.00 
+                                      o_rdata[3-0]           1           1      100.00 
+                                       rd_ptr[3-0]           1           1      100.00 
+                                   rd_ptr_B2G[0-3]           1           1      100.00 
+                                   rd_ptr_G2B[0-3]           1           1      100.00 
+                                 rd_ptr_synch[0-3]           1           1      100.00 
+                                       wr_ptr[3-0]           1           1      100.00 
+                                   wr_ptr_B2G[0-3]           1           1      100.00 
+                                   wr_ptr_G2B[0-3]           1           1      100.00 
+                                 wr_ptr_synch[0-3]           1           1      100.00 
+
+Total Node Count     =         47 
+Toggled Node Count   =         47 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (94 of 94 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top#DUT /sva_inst/RST_COVER            ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(22)
+                                                                                47 Covered   
+/\top#DUT /sva_inst/full_cond_cover      ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(52)
+                                                                              5528 Covered   
+/\top#DUT /sva_inst/empty_cond_cover     ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(55)
+                                                                              2723 Covered   
+/\top#DUT /sva_inst/wr_ptr_cond_cover    ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(58)
+                                                                              1079 Covered   
+/\top#DUT /sva_inst/rd_ptr_cond_cover    ASYNCH_FIFO_sva Verilog  SVA  ../UVM/ASYNCH_FIFO_sva.sv(61)
+                                                                               821 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 5
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top#DUT /sva_inst/RST_ASSERTION
+                     ../UVM/ASYNCH_FIFO_sva.sv(21)
+                                                        0          1
+/\top#DUT /sva_inst/full_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(51)
+                                                        0          1
+/\top#DUT /sva_inst/empty_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(54)
+                                                        0          1
+/\top#DUT /sva_inst/wr_ptr_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(57)
+                                                        0          1
+/\top#DUT /sva_inst/rd_ptr_cond_assertion
+                     ../UVM/ASYNCH_FIFO_sva.sv(60)
+                                                        0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

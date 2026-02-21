@@ -1,0 +1,17 @@
+Recursive Coverage Report Summary Data by DU
+
+=================================================================================
+=== Design Unit: work.power
+=================================================================================
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        28        28         0   100.00%
+    Conditions                       3         3         0   100.00%
+    Statements                      46        46         0   100.00%
+    Toggles                        272       272         0   100.00%
+
+
+Total Coverage By Design Unit (filtered view): 100.00%
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+

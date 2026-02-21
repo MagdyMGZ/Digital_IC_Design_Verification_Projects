@@ -1,0 +1,18 @@
+Recursive Coverage Report Summary Data by DU
+
+=================================================================================
+=== Design Unit: work.ASYNCH_FIFO
+=================================================================================
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Assertions                       5         5         0   100.00%
+    Branches                        12        12         0   100.00%
+    Conditions                       4         4         0   100.00%
+    Directives                       5         5         0   100.00%
+    Expressions                     15        15         0   100.00%
+    Statements                      23        23         0   100.00%
+    Toggles                        208       208         0   100.00%
+
+
+Total Coverage By Design Unit (filtered view): 100.00%
+
