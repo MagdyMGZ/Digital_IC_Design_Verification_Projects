@@ -1,0 +1,583 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\top#DUT /sva_inst
+=== Design Unit: work.AHB5_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       5         4         1    80.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top#DUT /sva_inst/assert__HRESP0_property
+                     ../UVM_Manager/AHB5_sva.sv(55)
+                                                        0          1
+/\top#DUT /sva_inst/assert__HRESP1_property
+                     ../UVM_Manager/AHB5_sva.sv(48)
+                                                        0          0
+/\top#DUT /sva_inst/assert__NOT_HREADYOUT_property
+                     ../UVM_Manager/AHB5_sva.sv(41)
+                                                        0          1
+/\top#DUT /sva_inst/assert__HREADYOUT_property
+                     ../UVM_Manager/AHB5_sva.sv(34)
+                                                        0          1
+/\top#DUT /sva_inst/assert__HRESETn_property
+                     ../UVM_Manager/AHB5_sva.sv(25)
+                                                        0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top#DUT /sva_inst
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../UVM_Manager/AHB5_sva.sv
+------------------------------------IF Branch------------------------------------
+    24                                      3217     Count coming in to IF
+    24              1                        353     	if (!HRESETn) begin
+                                            2864     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+
+Directive Coverage:
+    Directives                       5         4         1    80.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top#DUT /sva_inst/cover__HRESP0_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(56)
+                                                                              9084 Covered   
+/\top#DUT /sva_inst/cover__HRESP1_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(49)
+                                                                                 0 ZERO      
+/\top#DUT /sva_inst/cover__NOT_HREADYOUT_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(42)
+                                                                               376 Covered   
+/\top#DUT /sva_inst/cover__HREADYOUT_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(35)
+                                                                              9084 Covered   
+/\top#DUT /sva_inst/cover__HRESETn_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(26)
+                                                                               181 Covered   
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      2         0         2     0.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT /sva_inst --
+
+  File ../UVM_Manager/AHB5_sva.sv
+----------------Focused Expression View-----------------
+Line       21 Item    1  ((HADDR[7:0] > (256 - 1)) || ((8 << HSIZE) > 32))
+Expression totals: 0 of 2 input terms covered = 0.00%
+
+                Input Term   Covered  Reason for no coverage   Hint
+               -----------  --------  -----------------------  --------------
+  (HADDR[7:0] > (256 - 1))         N  '_1' not hit             Hit '_1'
+       ((8 << HSIZE) > 32)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target                  Non-masking condition(s)      
+ ---------  ---------  --------------------        -------------------------     
+  Row   1:          1  (HADDR[7:0] > (256 - 1))_0  ~((8 << HSIZE) > 32)          
+  Row   2:    ***0***  (HADDR[7:0] > (256 - 1))_1  -                             
+  Row   3:          1  ((8 << HSIZE) > 32)_0       ~(HADDR[7:0] > (256 - 1))     
+  Row   4:    ***0***  ((8 << HSIZE) > 32)_1       ~(HADDR[7:0] > (256 - 1))     
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       2         2         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT /sva_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../UVM_Manager/AHB5_sva.sv
+    2                                                module AHB5_sva (
+    3                                                	input       logic                                HCLK,
+    4                                                    input       logic                                HRESETn,
+    5                                                    input       logic                                HSELx,
+    6                                                    input       logic                                HREADY,
+    7                                                    input       logic        [ADDR_WIDTH-1:0]        HADDR,
+    8                                                    input       hburst_e					         HBURST,
+    9                                                    input       hsize_e                              HSIZE,
+    10                                                   input       htrans_e                             HTRANS,
+    11                                                   input       logic        [DATA_WIDTH-1:0]        HWDATA,
+    12                                                   input       logic        [STRB_WIDTH-1:0]        HWSTRB,
+    13                                                   input       type_e                               HWRITE,
+    14                                                   input       logic        [DATA_WIDTH-1:0]        HRDATA,
+    15                                                   input       logic                                HREADYOUT,
+    16                                                   input       logic                                HRESP
+    17                                               );
+    18                                               
+    19                                               logic invalid_trans;
+    20                                               
+    21              1                       9939     assign invalid_trans = ((HADDR[OFFSET-1:0] > (MEM_DEPTH-1)) || ((8 << HSIZE) > DATA_WIDTH));
+    22                                               
+    23              1                       3217     always_comb begin
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        231       181        50    78.35%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT /sva_inst --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                        HADDR[0-8]           1           1                              100.00 
+                                       HADDR[9-31]           0           0                                0.00 
+                                            HBURST               ENUM type       Value       Count 
+                                                                    SINGLE           2      100.00 
+                                                                      INCR           2      100.00 
+                                                                     WRAP4           2      100.00 
+                                                                     INCR4           2      100.00 
+                                                                     WRAP8           2      100.00 
+                                                                     INCR8           1      100.00 
+                                                                    WRAP16           4      100.00 
+                                                                    INCR16           3      100.00 
+                                              HCLK           1           1                              100.00 
+                                      HRDATA[0-31]           1           1                              100.00 
+                                            HREADY           1           1                              100.00 
+                                         HREADYOUT           1           1                              100.00 
+                                           HRESETn           1           1                              100.00 
+                                             HRESP           0           0                                0.00 
+                                             HSELx           1           1                              100.00 
+                                             HSIZE               ENUM type       Value       Count 
+                                                                      BYTE           1      100.00 
+                                                                  HALFWORD           1      100.00 
+                                                                      WORD           1      100.00 
+                                            HTRANS               ENUM type       Value       Count 
+                                                                      IDLE           3      100.00 
+                                                                      BUSY           1      100.00 
+                                                                    NONSEQ          15      100.00 
+                                                                       SEQ          15      100.00 
+                                      HWDATA[0-31]           1           1                              100.00 
+                                            HWRITE               ENUM type       Value       Count 
+                                                                      READ           1      100.00 
+                                                                     WRITE           1      100.00 
+                                       HWSTRB[0-3]           1           1                              100.00 
+                                     invalid_trans           0           0                                0.00 
+
+Total Node Count     =        124 
+Toggled Node Count   =         99 
+Untoggled Node Count =         25 
+
+Toggle Coverage      =      78.35% (181 of 231 bins)
+
+=================================================================================
+=== Instance: /\top#DUT 
+=== Design Unit: work.AHB5_Slave_Memory
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        28        24         4    85.71%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top#DUT 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL_Subordinate/AHB5_Slave_Memory.v
+------------------------------------IF Branch------------------------------------
+    71                                     10182     Count coming in to IF
+    71              1                        364         if (!HRESETn) begin
+    82              1                       9818         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    97                                     10179     Count coming in to IF
+    97              1                        362         if (!HRESETn) begin
+    102             1                       9817         else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    103                                     9817     Count coming in to IF
+    103             1                       9254             if (HREADY_FF && HSELx_FF) begin
+    142             1                        563             else begin                  // HSEL NOT READY
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    104                                     9254     Count coming in to IF
+    104             1                    ***0***                 if (invalid_trans) begin
+    108             1                       9254                 else begin
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    110                                     9254     Count coming in to IF
+    110             1                       9254                     if ((HTRANS_FF == 2'b10) || (HTRANS_FF == 2'b11)) begin // TRANS = NONSEQ or SEQ
+    137             1                    ***0***                     else begin          // TRANS = BUSY or IDLE
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    112                                     9254     Count coming in to IF
+    112             1                       5292                         if (HWRITE_FF) begin                                // WRITE OPPERATION
+    124             1                       3962                         else begin      // READ OPERATION
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    113                                     5292     Count coming in to CASE
+    114             1                        979                                 5'b00_000 : data_memory[offset] <= HWDATA_mask[7:0];    // 1st  BYTE
+    115             1                        252                                 5'b00_001 : data_memory[offset] <= HWDATA_mask[15:0];   // 1st  HALFWORD
+    116             1                        393                                 5'b00_010 : data_memory[offset] <= HWDATA_mask;         // FULL WORD
+    117             1                       1117                                 5'b01_000 : data_memory[offset] <= HWDATA_mask[15:8];   // 2nd  BYTE
+    118             1                        973                                 5'b10_000 : data_memory[offset] <= HWDATA_mask[23:16];  // 3rd  BYTE
+    119             1                        390                                 5'b10_001 : data_memory[offset] <= HWDATA_mask[31:16];  // 2nd  HALFWORD
+    120             1                       1188                                 5'b11_000 : data_memory[offset] <= HWDATA_mask[31:24];  // 4th  BYTE
+    121             1                    ***0***                                 default   : data_memory[offset] <= HWDATA_mask;         // FULL WORD
+Branch totals: 7 hits of 8 branches = 87.50%
+
+------------------------------------CASE Branch------------------------------------
+    125                                     3962     Count coming in to CASE
+    126             1                        736                                 5'b00_000 : HRDATA <= data_memory[offset][7:0];    // 1st  BYTE
+    127             1                        206                                 5'b00_001 : HRDATA <= data_memory[offset][15:0];   // 1st  HALFWORD
+    128             1                        293                                 5'b00_010 : HRDATA <= data_memory[offset];         // FULL WORD
+    129             1                        823                                 5'b01_000 : HRDATA <= data_memory[offset][15:8];   // 2nd  BYTE
+    130             1                        719                                 5'b10_000 : HRDATA <= data_memory[offset][23:16];  // 3rd  BYTE
+    131             1                        304                                 5'b10_001 : HRDATA <= data_memory[offset][31:16];  // 2nd  HALFWORD
+    132             1                        881                                 5'b11_000 : HRDATA <= data_memory[offset][31:24];  // 4th  BYTE
+    133             1                    ***0***                                 default   : HRDATA <= data_memory[offset];         // FULL WORD
+Branch totals: 7 hits of 8 branches = 87.50%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       4         2         2    50.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /\top#DUT  --
+
+  File ../RTL_Subordinate/AHB5_Slave_Memory.v
+----------------Focused Condition View-------------------
+Line       103 Item    1  (HREADY_FF && HSELx_FF)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+   HREADY_FF         Y
+    HSELx_FF         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  HREADY_FF_0           -                             
+  Row   2:          1  HREADY_FF_1           HSELx_FF                      
+  Row   3:          1  HSELx_FF_0            HREADY_FF                     
+  Row   4:          1  HSELx_FF_1            HREADY_FF                     
+
+----------------Focused Condition View-------------------
+Line       110 Item    1  ((HTRANS_FF == 2) || (HTRANS_FF == 3))
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+        Input Term   Covered  Reason for no coverage   Hint
+       -----------  --------  -----------------------  --------------
+  (HTRANS_FF == 2)         N  '_0' not hit             Hit '_0'
+  (HTRANS_FF == 3)         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (HTRANS_FF == 2)_0    ~(HTRANS_FF == 3)             
+  Row   2:          1  (HTRANS_FF == 2)_1    -                             
+  Row   3:    ***0***  (HTRANS_FF == 3)_0    ~(HTRANS_FF == 2)             
+  Row   4:          1  (HTRANS_FF == 3)_1    ~(HTRANS_FF == 2)             
+
+
+Expression Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Expressions                      2         0         2     0.00%
+
+================================Expression Details================================
+
+Expression Coverage for instance /\top#DUT  --
+
+  File ../RTL_Subordinate/AHB5_Slave_Memory.v
+----------------Focused Expression View-----------------
+Line       57 Item    1  ((offset > (256 - 1)) || ((8 << HSIZE_FF) > 32))
+Expression totals: 0 of 2 input terms covered = 0.00%
+
+              Input Term   Covered  Reason for no coverage   Hint
+             -----------  --------  -----------------------  --------------
+    (offset > (256 - 1))         N  '_1' not hit             Hit '_1'
+  ((8 << HSIZE_FF) > 32)         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target                Non-masking condition(s)      
+ ---------  ---------  --------------------      -------------------------     
+  Row   1:          1  (offset > (256 - 1))_0    ~((8 << HSIZE_FF) > 32)       
+  Row   2:    ***0***  (offset > (256 - 1))_1    -                             
+  Row   3:          1  ((8 << HSIZE_FF) > 32)_0  ~(offset > (256 - 1))         
+  Row   4:    ***0***  ((8 << HSIZE_FF) > 32)_1  ~(offset > (256 - 1))         
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      53        48         5    90.56%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top#DUT  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL_Subordinate/AHB5_Slave_Memory.v
+    5                                                module AHB5_Slave_Memory #(
+    6                                                    parameter  DATA_WIDTH   = 32,
+    7                                                    parameter  ADDR_WIDTH   = 32,
+    8                                                    parameter  HBURST_WIDTH = 3,
+    9                                                    parameter  MEM_DEPTH    = 256,
+    10                                                   localparam STRB_WIDTH   = DATA_WIDTH/8,
+    11                                                   localparam OFFSET       = $clog2(MEM_DEPTH)
+    12                                               ) (
+    13                                                   input       wire                                HCLK,
+    14                                                   input       wire                                HRESETn,
+    15                                                   input       wire                                HSELx,
+    16                                                   input       wire                                HREADY,
+    17                                                   input       wire        [ADDR_WIDTH-1:0]        HADDR,
+    18                                                   input       wire        [HBURST_WIDTH-1:0]      HBURST,
+    19                                                   input       wire        [2:0]                   HSIZE,
+    20                                                   input       wire        [1:0]                   HTRANS,
+    21                                                   input       wire        [DATA_WIDTH-1:0]        HWDATA,
+    22                                                   input       wire        [STRB_WIDTH-1:0]        HWSTRB,
+    23                                                   input       wire                                HWRITE,
+    24                                                   output      reg         [DATA_WIDTH-1:0]        HRDATA,
+    25                                                   output      reg                                 HREADYOUT,
+    26                                                   output      reg                                 HRESP
+    27                                               );
+    28                                               
+    29                                               // Signals to Register Inputs
+    30                                               reg                    HSELx_FF;
+    31                                               reg                    HREADY_FF;
+    32                                               reg [ADDR_WIDTH-1:0]   HADDR_FF;
+    33                                               reg [HBURST_WIDTH-1:0] HBURST_FF;
+    34                                               reg [2:0]              HSIZE_FF;
+    35                                               reg [1:0]              HTRANS_FF;
+    36                                               reg [DATA_WIDTH-1:0]   HWDATA_FF;
+    37                                               reg                    HWRITE_FF;
+    38                                               reg [STRB_WIDTH-1:0]   HWSTRB_FF;
+    39                                               
+    40                                               // Data Memory
+    41                                               reg [DATA_WIDTH-1:0] data_memory [0:MEM_DEPTH-1];
+    42                                               
+    43                                               // Offset signal from base address
+    44                                               wire [OFFSET-1:0] offset;
+    45                                               
+    46                                               // STRB Signal
+    47                                               wire [DATA_WIDTH-1:0] mask;
+    48                                               wire [DATA_WIDTH-1:0] HWDATA_mask;
+    49                                               
+    50                                               // HRESP Signal
+    51                                               wire invalid_trans;
+    52                                               
+    53                                               // HADDR (Base Address) Decoder logic
+    54              1                       9921     assign offset = HADDR_FF[OFFSET-1:0];
+    55                                               
+    56                                               // Invalid Transfers logic
+    57              1                      12986     assign invalid_trans = ((offset > (MEM_DEPTH-1)) || ((8 << HSIZE_FF) > DATA_WIDTH));
+    58                                               
+    59                                               // STRB logic
+    60                                               genvar i;
+    61                                               generate
+    62                                                   for (i = 0 ; i < STRB_WIDTH ; i = i + 1) begin
+    63       1 (GI=0)                       4909             assign mask[i*8 +: 8] = {8{HWSTRB_FF[i]}};
+    63       1 (GI=1)                       4909     
+    63       1 (GI=2)                       4909     
+    63       1 (GI=3)                       4909     
+    64                                                   end
+    65                                               endgenerate
+    66                                               
+    67              1                      15755     assign HWDATA_mask = ((HWDATA_FF & mask) | (data_memory[offset] & ~mask));
+    68                                               
+    69                                               // Address Phase for Pipelining
+    70              1                      10182     always @(posedge HCLK or negedge HRESETn) begin
+    71                                                   if (!HRESETn) begin
+    72              1                        364             HSELx_FF  <= 0;
+    73              1                        364             HREADY_FF <= 0;
+    74              1                        364             HADDR_FF  <= 0;
+    75              1                        364             HBURST_FF <= 0;
+    76              1                        364             HSIZE_FF  <= 0;
+    77              1                        364             HTRANS_FF <= 0;
+    78              1                        364             HWDATA_FF <= 0;
+    79              1                        364             HWRITE_FF <= 0;
+    80              1                        364             HWSTRB_FF <= 0;
+    81                                                   end
+    82                                                   else begin
+    83              1                       9818             HSELx_FF  <= HSELx;
+    84              1                       9818             HREADY_FF <= HREADY;
+    85              1                       9818             HADDR_FF  <= HADDR;
+    86              1                       9818             HBURST_FF <= HBURST;
+    87              1                       9818             HSIZE_FF  <= HSIZE;
+    88              1                       9818             HTRANS_FF <= HTRANS;
+    89              1                       9818             HWDATA_FF <= HWDATA;
+    90              1                       9818             HWRITE_FF <= HWRITE;
+    91              1                       9818             HWSTRB_FF <= HWSTRB;
+    92                                                   end
+    93                                               end
+    94                                               
+    95                                               // Data Transfer Phase
+    96              1                      10179     always @(posedge HCLK or negedge HRESETn) begin
+    97                                                   if (!HRESETn) begin
+    98              1                        362             HRESP <= 0;
+    99              1                        362             HREADYOUT <= 0;
+    100             1                        362             HRDATA <= 0;
+    101                                                  end
+    102                                                  else begin
+    103                                                      if (HREADY_FF && HSELx_FF) begin
+    104                                                          if (invalid_trans) begin
+    105             1                    ***0***                     HRESP <= 1;         // ERROR TRANS
+    106             1                    ***0***                     HREADYOUT <= 1;     // OUT READY
+    107                                                          end
+    108                                                          else begin
+    109             1                       9254                     HRESP <= 0;         // OKAY TRANS
+    110                                                              if ((HTRANS_FF == 2'b10) || (HTRANS_FF == 2'b11)) begin // TRANS = NONSEQ or SEQ
+    111             1                       9254                         HREADYOUT <= 1;                                     // OUT READY
+    112                                                                  if (HWRITE_FF) begin                                // WRITE OPPERATION
+    113                                                                      case ({offset[1:0],HSIZE_FF})
+    114             1                        979                                 5'b00_000 : data_memory[offset] <= HWDATA_mask[7:0];    // 1st  BYTE
+    115             1                        252                                 5'b00_001 : data_memory[offset] <= HWDATA_mask[15:0];   // 1st  HALFWORD
+    116             1                        393                                 5'b00_010 : data_memory[offset] <= HWDATA_mask;         // FULL WORD
+    117             1                       1117                                 5'b01_000 : data_memory[offset] <= HWDATA_mask[15:8];   // 2nd  BYTE
+    118             1                        973                                 5'b10_000 : data_memory[offset] <= HWDATA_mask[23:16];  // 3rd  BYTE
+    119             1                        390                                 5'b10_001 : data_memory[offset] <= HWDATA_mask[31:16];  // 2nd  HALFWORD
+    120             1                       1188                                 5'b11_000 : data_memory[offset] <= HWDATA_mask[31:24];  // 4th  BYTE
+    121             1                    ***0***                                 default   : data_memory[offset] <= HWDATA_mask;         // FULL WORD
+    122                                                                      endcase
+    123                                                                  end
+    124                                                                  else begin      // READ OPERATION
+    125                                                                      case ({offset[1:0],HSIZE_FF})
+    126             1                        736                                 5'b00_000 : HRDATA <= data_memory[offset][7:0];    // 1st  BYTE
+    127             1                        206                                 5'b00_001 : HRDATA <= data_memory[offset][15:0];   // 1st  HALFWORD
+    128             1                        293                                 5'b00_010 : HRDATA <= data_memory[offset];         // FULL WORD
+    129             1                        823                                 5'b01_000 : HRDATA <= data_memory[offset][15:8];   // 2nd  BYTE
+    130             1                        719                                 5'b10_000 : HRDATA <= data_memory[offset][23:16];  // 3rd  BYTE
+    131             1                        304                                 5'b10_001 : HRDATA <= data_memory[offset][31:16];  // 2nd  HALFWORD
+    132             1                        881                                 5'b11_000 : HRDATA <= data_memory[offset][31:24];  // 4th  BYTE
+    133             1                    ***0***                                 default   : HRDATA <= data_memory[offset];         // FULL WORD
+    134                                                                      endcase
+    135                                                                  end
+    136                                                              end
+    137                                                              else begin          // TRANS = BUSY or IDLE
+    138             1                    ***0***                         HREADYOUT <= 0; // OUT NOT READY
+    139                                                              end
+    140                                                          end
+    141                                                      end
+    142                                                      else begin                  // HSEL NOT READY
+    143             1                        563                 HRESP <= 0;             // ERROR
+    144             1                        563                 HREADYOUT <= 0;         // OUT NOT READY
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        534       434       100    81.27%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top#DUT  --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                        HADDR[0-8]           1           1                              100.00 
+                                       HADDR[9-31]           0           0                                0.00 
+                                     HADDR_FF[0-8]           1           1                              100.00 
+                                    HADDR_FF[9-31]           0           0                                0.00 
+                                       HBURST[0-2]           1           1                              100.00 
+                                    HBURST_FF[0-2]           1           1                              100.00 
+                                              HCLK           1           1                              100.00 
+                                      HRDATA[0-31]           1           1                              100.00 
+                                            HREADY           1           1                              100.00 
+                                         HREADYOUT           1           1                              100.00 
+                                         HREADY_FF           1           1                              100.00 
+                                           HRESETn           1           1                              100.00 
+                                             HRESP           0           0                                0.00 
+                                             HSELx           1           1                              100.00 
+                                          HSELx_FF           1           1                              100.00 
+                                        HSIZE[0-1]           1           1                              100.00 
+                                          HSIZE[2]           0           0                                0.00 
+                                     HSIZE_FF[0-1]           1           1                              100.00 
+                                       HSIZE_FF[2]           0           0                                0.00 
+                                       HTRANS[0-1]           1           1                              100.00 
+                                    HTRANS_FF[0-1]           1           1                              100.00 
+                                      HWDATA[0-31]           1           1                              100.00 
+                                   HWDATA_FF[0-31]           1           1                              100.00 
+                                 HWDATA_mask[0-31]           1           1                              100.00 
+                                            HWRITE           1           1                              100.00 
+                                         HWRITE_FF           1           1                              100.00 
+                                       HWSTRB[0-3]           1           1                              100.00 
+                                    HWSTRB_FF[0-3]           1           1                              100.00 
+                                     invalid_trans           0           0                                0.00 
+                                        mask[0-31]           1           1                              100.00 
+                                       offset[0-7]           1           1                              100.00 
+
+Total Node Count     =        267 
+Toggled Node Count   =        217 
+Untoggled Node Count =         50 
+
+Toggle Coverage      =      81.27% (434 of 534 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top#DUT /sva_inst/cover__HRESP0_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(56)
+                                                                              9084 Covered   
+/\top#DUT /sva_inst/cover__HRESP1_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(49)
+                                                                                 0 ZERO      
+/\top#DUT /sva_inst/cover__NOT_HREADYOUT_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(42)
+                                                                               376 Covered   
+/\top#DUT /sva_inst/cover__HREADYOUT_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(35)
+                                                                              9084 Covered   
+/\top#DUT /sva_inst/cover__HRESETn_property 
+                                         AHB5_sva Verilog  SVA  ../UVM_Manager/AHB5_sva.sv(26)
+                                                                               181 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 80.00%  COVERS: 5
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top#DUT /sva_inst/assert__HRESP0_property
+                     ../UVM_Manager/AHB5_sva.sv(55)
+                                                        0          1
+/\top#DUT /sva_inst/assert__HRESP1_property
+                     ../UVM_Manager/AHB5_sva.sv(48)
+                                                        0          0
+/\top#DUT /sva_inst/assert__NOT_HREADYOUT_property
+                     ../UVM_Manager/AHB5_sva.sv(41)
+                                                        0          1
+/\top#DUT /sva_inst/assert__HREADYOUT_property
+                     ../UVM_Manager/AHB5_sva.sv(34)
+                                                        0          1
+/\top#DUT /sva_inst/assert__HRESETn_property
+                     ../UVM_Manager/AHB5_sva.sv(25)
+                                                        0          1
+
+Total Coverage By Instance (filtered view): 66.85%
+

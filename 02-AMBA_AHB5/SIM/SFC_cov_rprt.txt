@@ -1,0 +1,234 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /AHB5_pkg
+=== Design Unit: work.AHB5_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses         12        na        na        na
+            Covergroup Bins         51        51         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /AHB5_pkg/AHB5_collector/AHB5_cov_grp           100.00%        100          -    Covered              
+    covered/total bins:                                    51         51          -                      
+    missing/total bins:                                     0         51          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint hresetn_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hresetn0                                      186          1          -    Covered              
+        bin hresetn1                                     9814          1          -    Covered              
+    Coverpoint slv_hsel_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin slv_closed                                    203          1          -    Covered              
+        bin slv_opened                                   9797          1          -    Covered              
+    Coverpoint slv_hready_cp                          100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin slv_ready0                                    221          1          -    Covered              
+        bin slv_ready1                                   9779          1          -    Covered              
+    Coverpoint haddr_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin memory_slv_addr[0]                             40          1          -    Covered              
+        bin memory_slv_addr[4]                             40          1          -    Covered              
+        bin memory_slv_addr[8]                             46          1          -    Covered              
+        bin memory_slv_addr[12]                            49          1          -    Covered              
+        bin memory_slv_addr[16]                            41          1          -    Covered              
+        bin memory_slv_addr[20]                            36          1          -    Covered              
+        bin memory_slv_addr[24]                            32          1          -    Covered              
+        bin memory_slv_addr[28]                            34          1          -    Covered              
+        bin memory_slv_addr[32]                            57          1          -    Covered              
+        bin memory_slv_addr[36]                            43          1          -    Covered              
+        bin memory_slv_addr[40]                            51          1          -    Covered              
+        bin memory_slv_addr[44]                            48          1          -    Covered              
+        bin memory_slv_addr[48]                            49          1          -    Covered              
+        bin memory_slv_addr[52]                            49          1          -    Covered              
+        bin memory_slv_addr[56]                            70          1          -    Covered              
+        bin memory_slv_addr[60]                            51          1          -    Covered              
+    Coverpoint hburst_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hburst_values[SINGLE]                         121          1          -    Covered              
+        bin hburst_values[INCR]                           279          1          -    Covered              
+        bin hburst_values[WRAP4]                          552          1          -    Covered              
+        bin hburst_values[INCR4]                          557          1          -    Covered              
+        bin hburst_values[WRAP8]                          914          1          -    Covered              
+        bin hburst_values[INCR8]                         1206          1          -    Covered              
+        bin hburst_values[WRAP16]                        3311          1          -    Covered              
+        bin hburst_values[INCR16]                        3060          1          -    Covered              
+    Coverpoint hsize_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hsize_values[BYTE]                           7949          1          -    Covered              
+        bin hsize_values[HALFWORD]                       1350          1          -    Covered              
+        bin hsize_values[WORD]                            701          1          -    Covered              
+    Coverpoint htrans_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin htrans_values[IDLE]                           386          1          -    Covered              
+        bin htrans_values[BUSY]                           209          1          -    Covered              
+        bin htrans_values[NONSEQ]                        1401          1          -    Covered              
+        bin htrans_values[SEQ]                           8004          1          -    Covered              
+    Coverpoint hwdata_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                         4606          1          -    Covered              
+        bin max                                           642          1          -    Covered              
+        bin typical                                      4752          1          -    Covered              
+    Coverpoint hstrb_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin one_hot_strb[1]                              1172          1          -    Covered              
+        bin one_hot_strb[2]                              1182          1          -    Covered              
+        bin one_hot_strb[4]                              1222          1          -    Covered              
+        bin one_hot_strb[8]                              1196          1          -    Covered              
+        bin strb0                                        4631          1          -    Covered              
+        bin strb1                                         597          1          -    Covered              
+    Coverpoint hwrite_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hread                                        4049          1          -    Covered              
+        bin hwrite                                       5951          1          -    Covered              
+    Coverpoint hreadyout_cp                           100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hreadyout0                                    772          1          -    Covered              
+        bin hreadyout1                                   9228          1          -    Covered              
+    Coverpoint hresp_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        ignore_bin error                                    0                     -    ZERO                 
+        bin okay                                        10000          1          -    Covered              
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /AHB5_pkg/AHB5_collector/AHB5_cov_grp           100.00%        100          -    Covered              
+    covered/total bins:                                    51         51          -                      
+    missing/total bins:                                     0         51          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint hresetn_cp                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hresetn0                                      186          1          -    Covered              
+        bin hresetn1                                     9814          1          -    Covered              
+    Coverpoint slv_hsel_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin slv_closed                                    203          1          -    Covered              
+        bin slv_opened                                   9797          1          -    Covered              
+    Coverpoint slv_hready_cp                          100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin slv_ready0                                    221          1          -    Covered              
+        bin slv_ready1                                   9779          1          -    Covered              
+    Coverpoint haddr_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin memory_slv_addr[0]                             40          1          -    Covered              
+        bin memory_slv_addr[4]                             40          1          -    Covered              
+        bin memory_slv_addr[8]                             46          1          -    Covered              
+        bin memory_slv_addr[12]                            49          1          -    Covered              
+        bin memory_slv_addr[16]                            41          1          -    Covered              
+        bin memory_slv_addr[20]                            36          1          -    Covered              
+        bin memory_slv_addr[24]                            32          1          -    Covered              
+        bin memory_slv_addr[28]                            34          1          -    Covered              
+        bin memory_slv_addr[32]                            57          1          -    Covered              
+        bin memory_slv_addr[36]                            43          1          -    Covered              
+        bin memory_slv_addr[40]                            51          1          -    Covered              
+        bin memory_slv_addr[44]                            48          1          -    Covered              
+        bin memory_slv_addr[48]                            49          1          -    Covered              
+        bin memory_slv_addr[52]                            49          1          -    Covered              
+        bin memory_slv_addr[56]                            70          1          -    Covered              
+        bin memory_slv_addr[60]                            51          1          -    Covered              
+    Coverpoint hburst_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hburst_values[SINGLE]                         121          1          -    Covered              
+        bin hburst_values[INCR]                           279          1          -    Covered              
+        bin hburst_values[WRAP4]                          552          1          -    Covered              
+        bin hburst_values[INCR4]                          557          1          -    Covered              
+        bin hburst_values[WRAP8]                          914          1          -    Covered              
+        bin hburst_values[INCR8]                         1206          1          -    Covered              
+        bin hburst_values[WRAP16]                        3311          1          -    Covered              
+        bin hburst_values[INCR16]                        3060          1          -    Covered              
+    Coverpoint hsize_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hsize_values[BYTE]                           7949          1          -    Covered              
+        bin hsize_values[HALFWORD]                       1350          1          -    Covered              
+        bin hsize_values[WORD]                            701          1          -    Covered              
+    Coverpoint htrans_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin htrans_values[IDLE]                           386          1          -    Covered              
+        bin htrans_values[BUSY]                           209          1          -    Covered              
+        bin htrans_values[NONSEQ]                        1401          1          -    Covered              
+        bin htrans_values[SEQ]                           8004          1          -    Covered              
+    Coverpoint hwdata_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                         4606          1          -    Covered              
+        bin max                                           642          1          -    Covered              
+        bin typical                                      4752          1          -    Covered              
+    Coverpoint hstrb_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 6          6          -                      
+        missing/total bins:                                 0          6          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin one_hot_strb[1]                              1172          1          -    Covered              
+        bin one_hot_strb[2]                              1182          1          -    Covered              
+        bin one_hot_strb[4]                              1222          1          -    Covered              
+        bin one_hot_strb[8]                              1196          1          -    Covered              
+        bin strb0                                        4631          1          -    Covered              
+        bin strb1                                         597          1          -    Covered              
+    Coverpoint hwrite_cp                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hread                                        4049          1          -    Covered              
+        bin hwrite                                       5951          1          -    Covered              
+    Coverpoint hreadyout_cp                           100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin hreadyout0                                    772          1          -    Covered              
+        bin hreadyout1                                   9228          1          -    Covered              
+    Coverpoint hresp_cp                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        ignore_bin error                                    0                     -    ZERO                 
+        bin okay                                        10000          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 100.00%
+
